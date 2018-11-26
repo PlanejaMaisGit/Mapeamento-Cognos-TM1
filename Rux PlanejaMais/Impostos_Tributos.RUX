@@ -1,0 +1,35 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['FGTS']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['INSS']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['PIS']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['SalMinimo']=C: ConsolidatedAvg(2, 'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['PctAdicNoturno']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['Assiduidade']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['Insalubridade']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+['Periculosidade']=C: ConsolidatedAvg(2,'Impostos_Tributos',!Ano, !Versões, !Meses, !Recursos Humanos, !Impostos Tributos RH);
+
+
+FEEDERS;
+
+['RecursosHumanos','FGTS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'FGTS','Total Centro Custo');
+
+['RecursosHumanos','INSS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'INSS','Total Centro Custo');
+
+['RecursosHumanos','PIS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PIS','Total Centro Custo');
+
+['RecursosHumanos','SalMinimo',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'SalMinimo','Total Centro Custo');
+
+['RecursosHumanos','PctAdicNoturno',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PctAdicNoturno','Total Centro Custo');
+
+['RecursosHumanos','Assiduidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'Assiduidade','Total Centro Custo');
+
+['RecursosHumanos','Insalubridade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'Insalubridade','Total Centro Custo');
+
+['RecursosHumanos','Periculosidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,!Meses,'Periculosidade','Total Centro Custo');
+
+

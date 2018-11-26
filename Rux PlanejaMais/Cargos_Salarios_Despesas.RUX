@@ -1,0 +1,13 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','RevisaoOrcamento'}]=N:(DB('Cargos_Salarios_interno',!Ano,!Versões,!Meses,!Cargos,!Centro de Custo)*['Teste']);
+
+['Teste']=1;
+
+feeders;
+
+
+
+

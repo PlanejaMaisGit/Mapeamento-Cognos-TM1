@@ -1,0 +1,55 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+#['FaturaReais',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+  #              if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato') @= '', stet,
+#	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Moeda') @= 'R$' ,
+   #             if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento', stet,
+      #          ['Volume']*['PrecoReal']), ['FaturaDolares']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$')));
+
+
+['FaturaReais',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+              	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Moeda') @= 'R$' ,
+                if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento', stet,
+                ['Volume']*['PrecoReal']), ['FaturaDolares']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$'));
+
+#[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'% Custo s/ Faturamento']=N:
+#	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@<>'Unidade/Preço', stet, 0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'% Custo s/ Faturamento']=N:
+	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento', stet, 0);
+
+
+
+['FaturaDolares',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+ 	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Moeda')@='US$' & DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento',STET,['Volume']*['PrecoDolar']);
+
+['PrecoReal',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento',0,
+	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Moeda')@='R$',stet,0));C:0;
+
+['PrecoDolar',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento',0,
+	if(DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Moeda')@='US$',stet,0));C:0;
+
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'% Custo s/ Faturamento']=C: ConsolidatedAvg(2,'Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,!Contas Parâmetros);
+
+['Volume',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+	if(DB('Parametro_Produto',!Ano,!Versões, !Produtos,!Area de Negócio,'Formato')@='Faturamento',stet,
+	if(DB('Parametro_Produto',!Ano,!Versões, !Produtos,!Area de Negócio,'Formato')@='',0,STET));
+
+
+FEEDERS;
+
+['Volume']=>['FaturaDolares'],['FaturaReais'];
+['FaturaDolares']=>['FaturaReais'];
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'FaturaReais']=>DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'D01','R$',!Produtos,'Faturamento');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Volume']=>DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'D01','R$',!Produtos,'Volume'), DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'D01','US$',!Produtos,'Volume');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'PrecoReal']=>DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'D01','R$',!Produtos,'Preço de Venda');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'PrecoDolar']=>DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'D01','US$',!Produtos,'Preço de Venda');
+

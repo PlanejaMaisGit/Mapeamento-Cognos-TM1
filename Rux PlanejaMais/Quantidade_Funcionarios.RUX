@@ -1,0 +1,498 @@
+﻿FORMAT==100
+#Region System
+FEEDSTRINGS;
+SKIPCHECK;
+#EndRegion
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 2']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 3']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 4']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 5']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 6']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 7']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 8']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 9']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 10']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 11']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 12']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade?')@='Sim',['HDez'],0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 2']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 3']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 4']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 5']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 6']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 7']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 8']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 9']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 10']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 11']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 12']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade?')@='Sim',['HDez'],0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 2']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 3']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 4']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 5']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 6']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 7']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 8']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 9']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 10']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 11']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 12']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',['HDez'],0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 2']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 3']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 4']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 5']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 6']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 7']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 8']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 9']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 10']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 11']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 12']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'(%) Produtividade')<>0,['HDez'],0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno']= if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 2']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 3']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 4']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 5']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 6']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 7']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 8']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 9']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 10']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 11']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 12']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Adic. Noturno?')@='Sim',['HDez'],0);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Jan')<>0,['HJan'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 2']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Fev')<>0,['HFev'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 3']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Mar')<>0,['HMar'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 4']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Abr')<>0,['HAbr'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 5']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Mai')<>0,['HMai'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 6']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Jun')<>0,['HJun'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 7']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Jul')<>0,['HJul'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 8']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Ago')<>0,['HAgo'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 9']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Set')<>0,['HSet'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 10']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Out')<>0,['HOut'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 11']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Nov')<>0,['HNov'],0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 12']=N: if(DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Dez')<>0,['HDez'],0);
+
+
+['Valor Assiduidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M1','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade'								];
+['Valor Assiduidade 2',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M2','RecursosHumanos','Assiduidade') *['Numero Funcionarios Assiduidade 2'];
+['Valor Assiduidade 3',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M3','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 3'];
+['Valor Assiduidade 4',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M4','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 4'];
+['Valor Assiduidade 5',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões,'M5','RecursosHumanos','Assiduidade')*['Numero Funcionarios Assiduidade 5'];
+['Valor Assiduidade 6',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões,'M6','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 6'];
+['Valor Assiduidade 7',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M7','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 7'];
+['Valor Assiduidade 8',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M8','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 8'];
+['Valor Assiduidade 9',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M9','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 9'];
+['Valor Assiduidade 10',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões,'M10','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 10'];
+['Valor Assiduidade 11',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M11','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 11'];
+['Valor Assiduidade 12',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M12','RecursosHumanos','Assiduidade') *['Numero Funcionarios Assiduidade 12'];
+
+['Valor Assiduidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M1','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade'								];
+['Valor Assiduidade 2',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M2','RecursosHumanos','Assiduidade') *['Numero Funcionarios Assiduidade 2'];
+['Valor Assiduidade 3',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M3','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 3'];
+['Valor Assiduidade 4',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M4','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 4'];
+['Valor Assiduidade 5',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões, 'M5','RecursosHumanos','Assiduidade')*['Numero Funcionarios Assiduidade 5'];
+['Valor Assiduidade 6',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões, 'M6','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 6'];
+['Valor Assiduidade 7',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M7','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 7'];
+['Valor Assiduidade 8',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M8','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 8'];
+['Valor Assiduidade 9',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões, 'M9','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 9'];
+['Valor Assiduidade 10',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Impostos_Tributos',!Ano,!Versões,'M10','RecursosHumanos','Assiduidade')* ['Numero Funcionarios Assiduidade 10'];
+['Valor Assiduidade 11',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M11','RecursosHumanos','Assiduidade') * ['Numero Funcionarios Assiduidade 11'];
+['Valor Assiduidade 12',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Impostos_Tributos',!Ano,!Versões,'M12','RecursosHumanos','Assiduidade') *['Numero Funcionarios Assiduidade 12'];
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade']=N:DB('Impostos_Tributos',!Ano,!Versões,'M1','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M1','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 2']=N:DB('Impostos_Tributos',!Ano,!Versões,'M2','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M2','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 2'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 3']=N:DB('Impostos_Tributos',!Ano,!Versões,'M3','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M3','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 3'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 4']=N:DB('Impostos_Tributos',!Ano,!Versões,'M4','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M4','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 4'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 5']=N:DB('Impostos_Tributos',!Ano,!Versões,'M5','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M5','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 5'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 6']=N:DB('Impostos_Tributos',!Ano,!Versões,'M6','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M6','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 6'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 7']=N:DB('Impostos_Tributos',!Ano,!Versões,'M7','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M7','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 7'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 8']=N:DB('Impostos_Tributos',!Ano,!Versões,'M8','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M8','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 8'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 9']=N:DB('Impostos_Tributos',!Ano,!Versões,'M9','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M9','RecursosHumanos','Insalubridade')*[ 'Numero Funcionarios Insalubridade 9'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 10']=N:DB('Impostos_Tributos',!Ano,!Versões,'M10','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M10','RecursosHumanos','Insalubridade')*[ 'Numero FuncionariosInsalubridade 10'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 11']=N:DB('Impostos_Tributos',!Ano,!Versões,'M11','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M11','RecursosHumanos','Insalubridade')*[ 'Numero FuncionariosInsalubridade 11'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Insalubridade 12']=N:DB('Impostos_Tributos',!Ano,!Versões,'M12','RecursosHumanos','SalMinimo')*DB('Impostos_Tributos',!Ano,!Versões, 'M12','RecursosHumanos','Insalubridade')*[ 'Numero FuncionariosInsalubridade 12'];
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade']=N: if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Janeiro']*DB('Impostos_Tributos',!Ano,!Versões, 'M1', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 2']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Fevereiro']*DB('Impostos_Tributos',!Ano,!Versões, 'M2', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 3']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Março']*DB('Impostos_Tributos',!Ano,!Versões, 'M3', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 4']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Abril']*DB('Impostos_Tributos',!Ano,!Versões, 'M4', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 5']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Maio']*DB('Impostos_Tributos',!Ano,!Versões, 'M5', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 6']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Junho']*DB('Impostos_Tributos',!Ano,!Versões, 'M6', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 7']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Julho']*DB('Impostos_Tributos',!Ano,!Versões, 'M7', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 8']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim',[ 'Sal. Agosto']*DB('Impostos_Tributos',!Ano,!Versões, 'M8', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 9']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Setembro']*DB('Impostos_Tributos',!Ano,!Versões, 'M9', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 10']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Outubro']*DB('Impostos_Tributos',!Ano,!Versões, 'M10', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 11']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Novembro']*DB('Impostos_Tributos',!Ano,!Versões, 'M11', 'RecursosHumanos','Periculosidade'),0);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Periculosidade 12']=N:if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade?')@='Sim', [ 'Sal. Dezembro']*DB('Impostos_Tributos',!Ano,!Versões, 'M12', 'RecursosHumanos','Periculosidade'),0)				;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno']=N:(['Sal. Janeiro']/220 * DB('Impostos_Tributos',!Ano, !Versões, 'M1','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot'));
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 2']=N: [ 'Sal. Fevereiro']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M2','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 3']=N: [ 'Sal. Março']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M3','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 4']=N: [ 'Sal. Abril']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M4','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 5']=N: [ 'Sal. Maio']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M5','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 6']=N: [ 'Sal. Junho']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M6','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 7']=N: [ 'Sal. Julho']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M7','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 8']=N: [ 'Sal. Agosto']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M8','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 9']=N: [ 'Sal. Setembro']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M9','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 10']=N: [ 'Sal. Outubro']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M10','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 11']=N: [ 'Sal. Novembro']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M11','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Adic Noturno 12']=N: [ 'Sal. Dezembro']/220*DB('Impostos_Tributos',!Ano,!Versões, 'M12','RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade']=N:  [ 'Sal. Janeiro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 2']=N: [ 'Sal. Fevereiro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 3']=N: [ 'Sal. Março']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 4']=N: [ 'Sal. Abril']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 5']=N: [ 'Sal. Maio']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 6']=N: [ 'Sal. Junho']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 7']=N: [ 'Sal. Julho']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 8']=N: [ 'Sal. Agosto']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 9']=N: [ 'Sal. Setembro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 10']=N: [ 'Sal. Outubro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 11']=N: [ 'Sal. Novembro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Produtividade 12']=N: [ 'Sal. Dezembro']*DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras']=N:[ 'Sal. Janeiro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M1');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 2']=N:[ 'Sal. Fevereiro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 3']=N:[ 'Sal. Março']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 4']=N:[ 'Sal. Abril']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 5']=N:[ 'Sal. Maio']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 6']=N:[ 'Sal. Junho']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 7']=N:[ 'Sal. Julho']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 8']=N:[ 'Sal. Agosto']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 9']=N:[ 'Sal. Setembro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 10']=N:[ 'Sal. Outubro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 11']=N:[ 'Sal. Novembro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Valor Horas Extras 12']=N:[ 'Sal. Dezembro']/220* 1.5*  DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Insalubridade 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Periculosidade 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Assiduidade 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Produtividade 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Adic Noturno 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 2','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 3','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 4','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 5','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 6','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 7','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 8','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 9','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 10','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 11','Total Itens']=ConsolidateChildren('Meses Headcount');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Numero Funcionarios Horas Extras 12','Total Itens']=ConsolidateChildren('Meses Headcount');
+
+['M1Sal']=N:['HJan']*['M1']*(1+['PctAjuste']);
+['M2Sal']=N:['HFev']*['M2']*(1+['PctAjuste']);
+['M3Sal']=N:['HMar']*['M3']*(1+['PctAjuste']);
+['M4Sal']=N:['HAbr']*['M4']*(1+['PctAjuste']);
+['M5Sal']=N:['HMai']*['M5']*(1+['PctAjuste']);
+['M6Sal']=N:['HJun']*['M6']*(1+['PctAjuste']);
+['M7Sal']=N:['HJul']*['M7']*(1+['PctAjuste']);
+['M8Sal']=N:['HAgo']*['M8']*(1+['PctAjuste']);
+['M9Sal']=N:['HSet']*['M9']*(1+['PctAjuste']);
+['M10Sal']=N:['HOut']*['M10']*(1+['PctAjuste']);
+['M11Sal']=N:['HNov']*['M11']*(1+['PctAjuste']);
+['M12Sal']=N:['Hdez']*['M12']*(1+['PctAjuste']);
+
+['Salário Base',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:['Janeiro'];
+
+['Sal. Ajustado',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:(1+['(%) Ajuste'])*['Salário Base'];
+
+#Region
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = S:IF(DIMIX('Meses', !Meses Headcount) <> 0,
+DB('Cargos_Salarios_Despesas', !Ano, !Versões, !Meses Headcount,
+DB('Quantidade_Funcionarios', !Ano, !Versões,!Centro de Custo, !Itens Headcount, 'Cargo'), !Centro de Custo),
+CONTINUE);
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:IF(DIMIX('Meses', !Meses Headcount) <> 0,
+DB('Cargos_Salarios_Despesas', !Ano, !Versões, !Meses Headcount,
+DB('Quantidade_Funcionarios', !Ano, !Versões,!Centro de Custo, !Itens Headcount, 'Cargo'), !Centro de Custo),
+CONTINUE);
+
+#EndRegion
+
+FEEDERS;
+
+['Total Centro Custo','Total Itens','Total de Funcionarios']=>DB('Indicadores',!Centro de Custo,!Ano,'Total do Ano',!Versões,'Número de Colaboradores');
+
+['TotalItens','(%) Ajuste',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>['TotalItens','Salário Base'];
+['TotalItens','(%) Ajuste',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>['TotalItens','SalAjustado'];
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['Sal. Ajustado'];
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M1'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M2'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M3'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M4'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M5'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M6'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M7'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M8'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M9'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M10'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M11'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Cargo']=>['M12'];
+
+['TotalItens','Salário Base']=>DB('Mao_Obra_Pessoal',!Ano,!Versões,'Total do Ano',!Centro de Custo,'Salário');
+
+['Numero Funcionarios Insalubridade 2']=>['Numero Funcionarios Insalubridade'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade '];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 2'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 3'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 4'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 5'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 6'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 7'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 8'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 9'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 10'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 11'];
+['Insalubridade?']=>['Numero Funcionarios Insalubridade 12'];
+
+['Insalubridade?']=>['Valor Insalubridade'];
+['Insalubridade?']=>['Valor Insalubridade 2'];
+['Insalubridade?']=>['Valor Insalubridade 3'];
+['Insalubridade?']=>['Valor Insalubridade 4'];
+['Insalubridade?']=>['Valor Insalubridade 5'];
+['Insalubridade?']=>['Valor Insalubridade 6'];
+['Insalubridade?']=>['Valor Insalubridade 7'];
+['Insalubridade?']=>['Valor Insalubridade 8'];
+['Insalubridade?']=>['Valor Insalubridade 9'];
+['Insalubridade?']=>['Valor Insalubridade 10'];
+['Insalubridade?']=>['Valor Insalubridade 11'];
+['Insalubridade?']=>['Valor Insalubridade 12'];
+
+['(%) Produtividade']=>['Numero Funcionarios Produtividade'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 2'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 3'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 4'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 5'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 6'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 7'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 8'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 9'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 10'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 11'];
+['(%) Produtividade']=>['Numero Funcionarios Produtividade 12'];
+
+['Sal. Janeiro']=>['Valor Horas Extras'];
+['Sal. Janeiro']=>['Valor Horas Extras 2'];
+['Sal. Janeiro']=>['Valor Horas Extras 3'];
+['Sal. Janeiro']=>['Valor Horas Extras 4'];
+['Sal. Janeiro']=>['Valor Horas Extras 5'];
+['Sal. Janeiro']=>['Valor Horas Extras 6'];
+['Sal. Janeiro']=>['Valor Horas Extras 7'];
+['Sal. Janeiro']=>['Valor Horas Extras 8'];
+['Sal. Janeiro']=>['Valor Horas Extras 9'];
+['Sal. Janeiro']=>['Valor Horas Extras 10'];
+['Sal. Janeiro']=>['Valor Horas Extras 11'];
+['Sal. Janeiro']=>['Valor Horas Extras 12'];
+
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 2'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 3'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 4'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 5'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 6'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 7'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 8'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 9'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 10'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 11'];
+['Numero Funcionarios Produtividade']=>['Numero Funcionarios Produtividade 12'];
+
+['(%) Produtividade']=>['Valor Produtividade'];
+['(%) Produtividade']=>['Valor Produtividade 2'];
+['(%) Produtividade']=>['Valor Produtividade 3'];
+['(%) Produtividade']=>['Valor Produtividade 4'];
+['(%) Produtividade']=>['Valor Produtividade 5'];
+['(%) Produtividade']=>['Valor Produtividade 6'];
+['(%) Produtividade']=>['Valor Produtividade 7'];
+['(%) Produtividade']=>['Valor Produtividade 8'];
+['(%) Produtividade']=>['Valor Produtividade 9'];
+['(%) Produtividade']=>['Valor Produtividade 10'];
+['(%) Produtividade']=>['Valor Produtividade 11'];
+['(%) Produtividade']=>['Valor Produtividade 12'];
+
+['Assiduidade?']=>['Valor Assiduidade'];
+['Assiduidade?']=>['Valor Assiduidade 2'];
+['Assiduidade?']=>['Valor Assiduidade 3'];
+['Assiduidade?']=>['Valor Assiduidade 4'];
+['Assiduidade?']=>['Valor Assiduidade 5'];
+['Assiduidade?']=>['Valor Assiduidade 6'];
+['Assiduidade?']=>['Valor Assiduidade 7'];
+['Assiduidade?']=>['Valor Assiduidade 8'];
+['Assiduidade?']=>['Valor Assiduidade 9'];
+['Assiduidade?']=>['Valor Assiduidade 10'];
+['Assiduidade?']=>['Valor Assiduidade 11'];
+['Assiduidade?']=>['Valor Assiduidade 12'];
+
+['Assiduidade?']=>['Numero Funcionarios Assiduidade'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 2'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 3'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 4'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 5'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 6'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 7'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 8'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 9'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 10'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 11'];
+['Assiduidade?']=>['Numero Funcionarios Assiduidade 12'];
+
+['Periculosidade?']=>['Numero Funcionarios Periculosidade'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 2'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 3'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 4'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 5'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 6'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 7'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 8'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 9'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 10'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 11'];
+['Periculosidade?']=>['Numero Funcionarios Periculosidade 12'];
+
+['Periculosidade?']=>['Valor Periculosidade'];
+['Periculosidade?']=>['Valor Periculosidade 2'];
+['Periculosidade?']=>['Valor Periculosidade 3'];
+['Periculosidade?']=>['Valor Periculosidade 4'];
+['Periculosidade?']=>['Valor Periculosidade 5'];
+['Periculosidade?']=>['Valor Periculosidade 6'];
+['Periculosidade?']=>['Valor Periculosidade 7'];
+['Periculosidade?']=>['Valor Periculosidade 8'];
+['Periculosidade?']=>['Valor Periculosidade 9'];
+['Periculosidade?']=>['Valor Periculosidade 10'];
+['Periculosidade?']=>['Valor Periculosidade 11'];
+['Periculosidade?']=>['Valor Periculosidade 12'];
+
+
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 2'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 3'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 4'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 5'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 6'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 7'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 8'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 9'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 10'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 11'];
+['Adic. Noturno?']=>['Numero Funcionarios Adic Noturno 12'];
+
+['Adic. Noturno?']=>['Valor Adic Noturno'];
+['Adic. Noturno?']=>['Valor Adic Noturno 2'];
+['Adic. Noturno?']=>['Valor Adic Noturno 3'];
+['Adic. Noturno?']=>['Valor Adic Noturno 4'];
+['Adic. Noturno?']=>['Valor Adic Noturno 5'];
+['Adic. Noturno?']=>['Valor Adic Noturno 6'];
+['Adic. Noturno?']=>['Valor Adic Noturno 7'];
+['Adic. Noturno?']=>['Valor Adic Noturno 8'];
+['Adic. Noturno?']=>['Valor Adic Noturno 9'];
+['Adic. Noturno?']=>['Valor Adic Noturno 10'];
+['Adic. Noturno?']=>['Valor Adic Noturno 11'];
+['Adic. Noturno?']=>['Valor Adic Noturno 12'];
+
+#['HeadCount Jan']=>['Sal. Janeiro'];
+#[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'HeadCount Jan']=>['Total Headcount'];
+
+['SalarioBase']=>['HsAdicNot'];
+['AdicNoturno']=>['HsAdicNot'];
+['SalAjustado']=>DB('Calculo_Pessoal', !Ano, !Versões,'Total do Ano',!Centro de Custo,!Itens Headcount,'Salários');
+
+['HJan']=>['Sal.Janeiro'];
+['HJan']=>['M1Sal'];
+['HFev']=>['M2Sal'];
+['HMar']=>['M3Sal'];
+['HAbr']=>['M4Sal'];
+['HMai']=>['M5Sal'];
+['HJun']=>['M6Sal'];
+['HJul']=>['M7Sal'];
+['HAgo']=>['M8Sal'];
+['HSet']=>['M9Sal'];
+['HOut']=>['M10Sal'];
+['HNov']=>['M11Sal'];
+['HDez']=>['M12Sal'];
+#Alimentadores gerados automaticamente
+['Meses Headcount':'Cargo'] => DB('Horas_Extras_Funcionario', !Ano, !Versões, !Centro de Custo, !Itens Headcount,'Cargo');
+#EndRegion
+#Region Alimentadores gerados automaticamente
+#Autogenerated AUTOFEEDERS
+['Meses Headcount':'Cargo'] => DB('Horas_Extras_Funcionario', !Ano, !Versões, !Centro de Custo, 
+    !Itens Headcount, 'Cargo');
+#EndRegion

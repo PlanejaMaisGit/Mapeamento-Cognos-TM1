@@ -1,0 +1,6 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+FEEDSTRINGS;

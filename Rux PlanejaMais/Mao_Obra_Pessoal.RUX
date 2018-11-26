@@ -1,0 +1,163 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['M1','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M1Sal');
+['M2','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M2Sal');
+['M3','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M3Sal');
+['M4','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M4Sal');
+['M5','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M5Sal');
+['M6','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M6Sal');
+['M7','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M7Sal');
+['M8','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M8Sal');
+['M9','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M9Sal');
+['M10','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M10Sal');
+['M11','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M11Sal');
+['M12','Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','M12Sal');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','AdicNoturno']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Adic Noturno 12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade ');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','Produtividade ']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Produtividade  12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','Periculosidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Periculosidade 12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','Insalubridade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Insalubridade 12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','Horas Extras']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Horas Extras 12');
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M1','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M2','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 2');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M3','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 3');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M4','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 4');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M5','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 5');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M6','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 6');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M7','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 7');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M8','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 8');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M9','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 9');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M10','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 10');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M11','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 11');
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'M12','Assiduidade']=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Valor Assiduidade 12');
+
+
+['INSS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'INSS',!Centro de Custo)*['Salários'];
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'FGTS']=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'FGTS',!Centro de Custo)*['Salários'];
+
+['PIS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PIS',!Centro de Custo)*['Salários'];
+
+['ProvFerias',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:( (['Salários'] + ['I.N.S.S.'] + ['FGTS'] + ['PIS'])/12) * 1.333333333333333;
+
+
+['ProvDecTercSal',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:(['Salários'] + ['I.N.S.S.'] + ['FGTS'] + ['PIS']) / 12;
+
+
+['RATAjust',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PctRATAjust',!Centro de Custo)*['Salários'];
+['Terceiros',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PctTerceiros',!Centro de Custo)*['Salários'];
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=['Orcamento','M1'];
+['OrcadoAcumulado','M2']=['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+
+
+feeders;
+['Orçamento']=>['Orçamento Acumulado'];
+
+['Orçamento']=>['Cenário 1'],['Cenário 2'],['RevisaoOrcamento'],['forecast'];
+['Salário']=>['AdicNoturno'];
+['Salário']=>['Assiduidade'];
+['Salário']=>['Produtividade'];
+['Salário']=>['Periculosidade'];
+['Salário']=>['Insalubridade'];
+['Salário']=>['Horas Extras'];
+['Salário']=>['FGTS'];
+['Salário']=>['PIS'];
+['Salário']=>['ProvFerias'];
+['Salário']=>['ProvDecTercSal'];
+['Salário']=>['RATAjust'];
+['Salário']=>['Terceiros'];
+['Salário']=>['INSS'];
+
+
+['Salário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503085',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'FGTS']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'502004',!Centro de Custo);
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Salário']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'502001',!Centro de Custo);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'PIS']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'502005 PIS',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'ProvFerias']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'502006 PROVISAO FERIAS',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'ProvDecTercSal']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'502007 PROVISAO 13. SALARIO',!Centro de Custo);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'Salário']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'602001 SALARIOS',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'FGTS']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'602004',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'PIS']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'602005',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'ProvFerias']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'602006',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'ProvDecTercSal']=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'602007',!Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'I.N.S.S.']=> DB('Premissas_Direcionadores', !Ano, !Versões, !Meses, '502003', !Centro de Custo);
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'I.N.S.S.']=> DB('Premissas_Direcionadores', !Ano, !Versões, !Meses, '602003', !Centro de Custo);
+

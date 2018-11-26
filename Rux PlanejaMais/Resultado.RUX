@@ -1,0 +1,142 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+#regra de Despesas com a quebra de link
+['Despesas Vendas',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$']=N:(DB('Despesas', !Area de Negócio, !Ano,!Versões,!Meses, '509','Despesas') + DB('Despesas', !Area de Negócio,!Ano,!Versões,!Meses, '504','Despesas'));
+['Despesas Operacionais',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$'] = N:(DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '510','Despesas') + DB('Despesas', !Area de Negócio,!Ano,!Versões,!Meses, '514','Despesas') + DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '503','Despesas') + DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '515','Despesas'));
+['Despesas Pró-labore',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$'] = N: DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '501','Despesas');
+['Despesas Pessoal',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$'] = N: DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '502','Despesas');
+['Despesas Tributárias',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$'] = N: DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '505','Despesas');
+['Receitas Operacionais',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$']=N: (DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '903','Despesas') + DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '901','Despesas') + DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '910','Despesas') + DB('Despesas', !Area de Negócio,!Ano,!Versões,!Meses, '909','Despesas'));
+['Receitas Financeiras',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$']=N: DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '902','Despesas');
+['Despesas Financeiras',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'R$']=N:(DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '508','Despesas') + DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses, '507','Despesas'));
+
+#regra de vendas com a quebra de link
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'Faturamento']= DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'Total do Mês',!Moedas,'Total de Produtos','Faturamento');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'Devoluções']=DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'Total do Mês',!Moedas,'Total de Produtos','Devolução');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'Impostos']=DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'Total do Mês',!Moedas,'Total de Produtos','Impostos s/ Produtos');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'C.M.V.']=DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'Total do Mês',!Moedas,'Total de Produtos','Custo do Produto');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'Resultado Bruto']=DB('Faturamento',!Area de Negócio,!Versões,!Ano,!Meses,'Total do Mês',!Moedas,'Total de Produtos','Resultado Bruto');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'Receita Líquida']=['Faturamento']-['Devoluções']-['Impostos'];
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'Resultado Líquido']=
+['Faturamento']-['Devoluções']-['Impostos']-['C.M.V.']-['Despesas Vendas']-['Despesas Financeiras']-['Despesas Operacionais']-['Despesas Pró-labore']-['Despesas Tributárias']- ['Despesas Pessoal']+['Receitas Financeiras']+['Receitas Operacionais'];
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'EBTIDA R$']=
+['Resultado Líquido'] +( ['Despesas Financeiras']-['Receitas Financeiras'])
++DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses,'503007','Despesas')
++DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses,'603007','Despesas')
++DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses,'503008','Despesas')
++DB('Despesas',!Area de Negócio,!Ano,!Versões,!Meses,'603008','Despesas');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'EBTI']=
+['Resultado Líquido'] +( ['Despesas Financeiras']-['Receitas Financeiras'])
+;
+
+
+
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'ROE']=if(['Resultado Líquido']=0,0,['Resultado Líquido']\DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Patrimônio Líquido'));
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'Margem Líquida']=if(['Receita Líquida']=0,0,['Resultado Líquido']\['Receita Líquida']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'Margem Bruta']=if(['Receita Líquida']=0,0,['Resultado Bruto']\['Receita Líquida']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'Margem Ebtida']=if(['Receita Líquida']=0,0,['EBTIDA R$']\['Receita Líquida']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% C.M.V.']= if(['Faturamento']=0,0,['C.M.V.']\['Receita Líquida']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Devoluções']= if(['Receita Líquida']=0,0,['Devoluções']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Impostos']= if(['Receita Líquida']=0,0,['Impostos']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Vendas']= if(['Receita Líquida']=0,0,['Despesas Vendas']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Financeiras']= if(['Receita Líquida']=0,0,['Despesas Financeiras']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Operacionais']= if(['Receita Líquida']=0,0,['Despesas Operacionais']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Pró-labore']=  if(['Receita Líquida']=0,0,['Despesas Pró-labore']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Tributárias']= if(['Receita Líquida']=0,0,['Despesas Tributárias']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Despesas Pessoal']= if(['Receita Líquida']=0,0,['Despesas Pessoal']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Receitas Financeiras']= if(['Receita Líquida']=0,0,['Receitas Financeiras']\['Faturamento']);
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'},'% Receitas Operacionais']= if(['Receita Líquida']=0,0,['Receitas Operacionais']\['Faturamento']);
+
+['RealAcumulado','Total do Ano']= ['RealAcumulado','M12'];
+['RealAcumulado','M1']=['Realizado','M1'];
+['RealAcumulado','M2']=['RealAcumulado','M1']+['Realizado','M2'];
+['RealAcumulado','M3']=['RealAcumulado','M2']+['Realizado','M3'];
+['RealAcumulado','M4']=['RealAcumulado','M3']+['Realizado','M4'];
+['RealAcumulado','M5']=['RealAcumulado','M4']+['Realizado','M5'];
+['RealAcumulado','M6']=['RealAcumulado','M5']+['Realizado','M6'];
+['RealAcumulado','M7']=['RealAcumulado','M6']+['Realizado','M7'];
+['RealAcumulado','M8']=['RealAcumulado','M7']+['Realizado','M8'];
+['RealAcumulado','M9']=['RealAcumulado','M8']+['Realizado','M9'];
+['RealAcumulado','M10']=['RealAcumulado','M9']+['Realizado','M10'];
+['RealAcumulado','M11']=['RealAcumulado','M10']+['Realizado','M11'];
+['RealAcumulado','M12']=['RealAcumulado','M11']+['Realizado','M12'];
+
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=['Orcamento','M1'];
+['OrcadoAcumulado','M2']=['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+['PctVarRealOrc']=C: ConsolidatedAvg(2,'Resultado',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,!Contas Resultado);
+
+FEEDERS;
+['Resultado Líquido']=>['EBTI'];
+['Resultado Líquido']=>['ROE'];
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+['Faturamento']=>['% Impostos'],['% Devoluções'],['EBTIDA R$'],['Margem Ebtida'],['Margem Bruta'],['Margem Líquida'],['% C.M.V.'],['Resultado Líquido'],['% Despesas Vendas'],
+['% Despesas Financeiras'],['% Despesas Operacionais'],['% Despesas Pró-labore'],['% Despesas Tributárias'],['% Despesas Pessoal'],['% Receitas Financeiras'],['% Receitas Operacionais'];
+['Resultado Líquido']=>['% Despesas Vendas'], ['% Despesas Financeiras'],['% Despesas Operacionais'],['% Despesas Pró-labore'],['% Despesas Tributárias'],['% Despesas Pessoal'],['% Receitas Financeiras'],['% Receitas Operacionais'];
+
+['Despesas Vendas']=>['Resultado Líquido'];
+['Despesas Financeiras']=>['Resultado Líquido'],['EBTIDA R$'];
+['Despesas Operacionais']=>['Resultado Líquido'];
+['Receitas Financeiras']=>['Resultado Líquido'],['EBTIDA R$'];
+['Receitas Operacionais']=>['Resultado Líquido'];
+['Resultado Líquido']=>['EBTIDA R$'];
+['Receita Líquida']=>['Margem Líquida'],['Margem Bruta'],['Margem Ebtida'],['C.M.V.'];
+['Devoluções']=>['Receita Líquida'],['Resultado Líquido'];
+['Impostos']=>['Receita Líquida'],['Resultado Líquido'];
+['C.M.V.']=>['Resultado Líquido'];
+['Orçamento',{'Faturamento','Receita Líquida','Devoluções','Impostos','C.M.V.','Resultado Bruto','Resultado Líquido','Despesas Vendas','Despesas Operacionais','EBTIDA R$','Receitas Operacionais','Receitas Financeiras','Despesas Financeiras'}]=>['Orçamento Acumulado'];
+['Realizado',{'Faturamento','Receita Líquida','Devoluções','Impostos','C.M.V.','Resultado Bruto','Resultado Líquido','Despesas Vendas','Despesas Operacionais','EBTIDA R$','Receitas Operacionais','Receitas Financeiras','Despesas Financeiras'}]=>['Realizado Acumulado'];
+['OrcadoAcumulado','M1',{'Faturamento','Receita Líquida','Devoluções','Impostos','C.M.V.','Resultado Bruto','Resultado Líquido','Despesas Vendas','Despesas Operacionais','EBTIDA R$','Receitas Operacionais','Receitas Financeiras','Despesas Financeiras'}]=>['M2'];
+
+['Orçamento']=>['Orçamento Acumulado'];
+['Realizado']=>['Realizado Acumulado'];
+['M1','OrcadoAcumulado']=>['M2'];
+['M2','OrcadoAcumulado']=>['M3'];
+['M3','OrcadoAcumulado']=>['M4'];
+['M4','OrcadoAcumulado']=>['M5'];
+['M5','OrcadoAcumulado']=>['M6'];
+['M6','OrcadoAcumulado']=>['M7'];
+['M7','OrcadoAcumulado']=>['M8'];
+['M8','OrcadoAcumulado']=>['M9'];
+['M9','OrcadoAcumulado']=>['M10'];
+['M10','OrcadoAcumulado']=>['M11'];
+['M11','OrcadoAcumulado']=>['M12'];
+
+['M1','RealAcumulado']=>['M2'];
+['M2','RealAcumulado']=>['M3'];
+['M3','RealAcumulado']=>['M4'];
+['M4','RealAcumulado']=>['M5'];
+['M5','RealAcumulado']=>['M6'];
+['M6','RealAcumulado']=>['M7'];
+['M7','RealAcumulado']=>['M8'];
+['M8','RealAcumulado']=>['M9'];
+['M9','RealAcumulado']=>['M10'];
+['M10','RealAcumulado']=>['M11'];
+['M11','RealAcumulado']=>['M12'];
+
+['R$']=>DB('teste',!Contas Resultado,!Ano,!Meses,!Versões,!Area de Negócio);

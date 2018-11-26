@@ -1,0 +1,52 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+
+['Total Itens']= N: if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Cliente')@='', 0, 1);
+
+['Total de Visitas']=N: if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Visitas')@='Sim', 1, 0);
+
+['Oportunidades Quentes']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Status')@='Quente', 1, 0);
+
+['Oportunidades Mornas']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Status')@='Morno', 1, 0);
+
+['Oportunidades Frias']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Status')@='Frio', 1, 0);
+
+['Oportunidades via Site']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Canal')@='Site', 1, 0);
+
+['Oportunidades via Prospecção']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Canal')@='Prospecção', 1, 0);
+
+['Oportunidades via Indicação']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Canal')@='Indicação', 1, 0);
+
+['Oportunidades via Outros']=N:  if(DB('Oportunidades',!Ano,!Meses ,!Itens Headcount,'Canal')@='Outros', 1, 0);
+
+['Total de Oportunidades']=N:['Oportunidades Quentes']+['Oportunidades Mornas']+['Oportunidades Frias'];
+
+feeders;
+
+['Oportunidades Quentes']=>['Total de Oportunidades'];
+
+['Canal']=>['Oportunidades via Site'];
+
+['Canal']=>['Oportunidades via Indicação'];
+
+['Canal']=>['Oportunidades via Prospecção'];
+
+['Canal']=>['Oportunidades via Outros'];
+
+
+['Status']=>['Oportunidades Quentes'];
+
+['Status']=>['Oportunidades Mornas'];
+
+['Status']=>['Oportunidades Frias'];
+
+#['Cliente']=>['Total de Oportunidades'];
+
+['Visitas']=>['Total de Visitas'];
+
+['Cliente']=>DB('Vendas','Total das Áreas de Negócios',!Ano,!Meses ,!Itens Headcount,'Nome da Empresa');
+
+['Total de Oportunidades']=>DB('Vendas','Total das Áreas de Negócios',!Ano,!Meses ,!Itens Headcount,'Número de Propescções');
+

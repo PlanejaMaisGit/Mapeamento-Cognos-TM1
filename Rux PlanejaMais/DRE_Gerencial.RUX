@@ -1,0 +1,104 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+
+['Faturamento',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,'R$',!Versões,'Faturamento');
+['Devoluções',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Devoluções' );
+['Impostos',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Impostos' );
+['Receita Líquida',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Receita Líquida' );
+['C.M.V.',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'C.M.V.' );
+['Resultado Bruto',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Resultado Bruto' );
+['Despesas Vendas',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Vendas' );
+['Despesas Financeiras',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Financeiras' );
+['Despesas Operacionais',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Operacionais' );
+['Despesas Pessoal',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Pessoal' );
+['Despesas Tributárias',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Tributárias' );
+['Despesas Pró-labore',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Despesas Pró-labore' );
+['Receitas Financeiras',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Receitas Financeiras' );
+['Receitas Operacionais',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Receitas Operacionais' );
+['Resultado Líquido',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:DB('Resultado_Final','Total das Áreas de Negócios',!Ano,!Meses,!Moedas, !Versões,'Resultado Líquido' );
+
+
+
+
+
+
+['Provisão para Imposto de Renda']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'Provisão para Imposto de Renda')*['Resultado Líquido'];
+
+['Provisão para Contribuição Social']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'Provisão para Contribuição Social')*['Resultado Líquido'];
+
+['Transf. p/ FATES (Resultado Terceiros)']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'Transf. p/ FATES (Resultado Terceiros)')*['Sobras/Resultado após IRPJ e CSLL'];
+
+['FATES']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'FATES')*['Resultado para Destinação Legal'];
+
+['Fundo de Reserva Legal']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'Fundo de Reserva Legal')*['Resultado para Destinação Legal'];
+
+['Conta Capital']=N:DB('Premissas_DRE',!Ano,!Versões,!Meses,'Conta Capital')*['Resultado para Destinação Legal'];
+
+
+['Sobras/Resultado após IRPJ e CSLL']=N:['Resultado Líquido']-['Provisão para Imposto de Renda']-['Provisão para Contribuição Social'];
+['Resultado para Destinação Legal']=N:['Sobras/Resultado após IRPJ e CSLL']-['Transf. p/ FATES (Resultado Terceiros)'];
+['Sobras à Disposição da A.G.O']=N:['Resultado para Destinação Legal']-['FATES']-['Fundo de Reserva Legal']-['Conta Capital'];
+
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=['Orcamento','M1'];
+['OrcadoAcumulado','M2']=['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+['RealAcumulado','Total do Ano']= ['RealAcumulado','M12'];
+['RealAcumulado','M1']=['Realizado','M1'];
+['RealAcumulado','M2']=['RealAcumulado','M1']+['Realizado','M2'];
+['RealAcumulado','M3']=['RealAcumulado','M2']+['Realizado','M3'];
+['RealAcumulado','M4']=['RealAcumulado','M3']+['Realizado','M4'];
+['RealAcumulado','M5']=['RealAcumulado','M4']+['Realizado','M5'];
+['RealAcumulado','M6']=['RealAcumulado','M5']+['Realizado','M6'];
+['RealAcumulado','M7']=['RealAcumulado','M6']+['Realizado','M7'];
+['RealAcumulado','M8']=['RealAcumulado','M7']+['Realizado','M8'];
+['RealAcumulado','M9']=['RealAcumulado','M8']+['Realizado','M9'];
+['RealAcumulado','M10']=['RealAcumulado','M9']+['Realizado','M10'];
+['RealAcumulado','M11']=['RealAcumulado','M10']+['Realizado','M11'];
+['RealAcumulado','M12']=['RealAcumulado','M11']+['Realizado','M12'];
+
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+
+
+
+FEEDERS;
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+['Realizado']=>['Realizado Acumulado'];
+
+['Orçamento']=>['Orçamento Acumulado'];
+['Realizado']=>['Realizado Acumulado'];
+
+['Resultado Líquido']=>['Sobras/Resultado após IRPJ e CSLL'];
+['Provisão para Imposto de Renda']=>['Sobras/Resultado após IRPJ e CSLL'];
+['Provisão para Contribuição Social']=>['Sobras/Resultado após IRPJ e CSLL'];
+
+['Sobras/Resultado após IRPJ e CSLL']=>['Resultado para Destinação Legal'];
+['Transf. p/ FATES (Resultado Terceiros)']=>['Resultado para Destinação Legal'];
+
+['Resultado para Destinação Legal']=>['Sobras à Disposição da A.G.O'];
+['FATES']=>['Sobras à Disposição da A.G.O'];
+['Fundo de Reserva Legal']=>['Sobras à Disposição da A.G.O'];
+['Conta Capital']=>['Sobras à Disposição da A.G.O'];
+
+['Sobras à Disposição da A.G.O']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Sobras a Disposição da A.G.O.');
+

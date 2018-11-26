@@ -1,0 +1,64 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+
+
+
+FEEDERS;
+
+
+['1010101']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Caixa');
+['1010102']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Bancos');
+['1010103']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Títulos Vinc. Merc. Aberto');
+['10102']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Créditos Assoc.');
+['1010302']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Créditos Não Assoc.');
+['1010303']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Adiantamento a Fornecedores');
+['1010304']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Outros Créd. a Rec.');
+['10111']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Estoques');
+['10201']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Créditos Associados');
+['1020201']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Créditos Não Associados');
+['104']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Depósitos Compulsórios');
+['1025001']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Outros Créd. a Rec. LP');
+['10303']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Intangível');
+
+['10304']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Diferido');
+['10301']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Investimentos');
+['10302']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Imobilizado');
+['10305']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Ativo Biológico LP');
+['10108']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Ativo Biológico');
+['1025002']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Despesas do Exercício Seguinte LP');
+['10150']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Despesas do Exercício Seguinte');
+['1010314']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Tributos a Recuperar');
+['1010315']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Tributos a Recuperar');
+['1010316']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Tributos a Recuperar');
+['1010317']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Tributos a Recuperar');
+['1010318']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Tributos a Recuperar');
+
+['20101']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Débitos Associados');
+['2010208']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Financiamentos');
+['2010206']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Fornecedores');
+['2010204']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Obrig. Sociais e Tributárias');
+['2010203']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Obrigações c/ Pessoal');
+['2010200']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Outros Déb. a Pagar');
+['2020205']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Depósitos Judiciais');
+['2020208']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Financiamentos LP');
+['20201']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Outros Déb. a Pagar LP');
+['2030101']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Capital Social Subscrito');
+['2030102']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Subvenção p/ Investimentos');
+['2030108']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Reserva Especial');
+['2030103003']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Fundo de Desenvolvimento');
+['2030103001']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Fundo Reserva Legal');
+['2030103002']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'FATES');
+['2030109']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Reserva de Reavaliação');
+['2030110']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Ajuste de Avaliação Patrimonial');
+['2030106001']=>DB('Balanco_Patrimonial',!Ano,!Versões,!Meses,'Sobras a Disposição da A.G.O.');
+
+
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];

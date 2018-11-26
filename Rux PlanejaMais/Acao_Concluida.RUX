@@ -1,0 +1,13 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+[]=S:
+if(DB('Plano_Acao',!Itens Headcount,'Status')@='Concluído',
+ DB('Plano_Acao',!Itens Headcount,!Progresso.),
+continue
+);
+
+
+feeders;
+

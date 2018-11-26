@@ -1,0 +1,153 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+['Faturamento','R$',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01' ]=N: DB('Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,'FaturaReais');
+
+
+
+['Faturamento',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'US$' ]=N: ['Faturamento','R$']\DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$');
+
+['Volume',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','R$' ]=N: if (DB('Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,'FaturaReais')=0,0,
+DB('Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,'Volume'));
+#['Volume','US$']=N: ['Volume','R$'];
+
+['PrecoVenda','R$',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01' ]=N: DB('Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,'PrecoReal');
+['PrecoVenda','US$',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01' ]=N: ['PrecoVenda','R$']\DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$');
+
+
+['ImpostosProdutos','D01',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Cenário 2','Forecast'}]= N: DB('Imposto_Produto',!Area de Negócio,!Versões,!Ano,!Produtos,'PctImpostos')*['Faturamento'];
+['ImpostosProdutos','US$',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01' ]=N: ['ImpostosProdutos','R$']\DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$');
+
+['CustoProduto',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','R$']=N:
+ if(
+DB('Parametro_Produto',!Ano,!Versões,!Produtos,!Area de Negócio,'Formato')@='Faturamento',
+['Faturamento']*DB('Plano_Venda',!Ano,!Versões,!Meses,!Produtos,!Area de Negócio,'% Custo s/ Faturamento'),
+DB('Custo_Produtos',!Area de Negócio,!Versões,!Ano,!Meses,!Produtos,'Custos')*['Volume']);
+
+
+['CustoProduto','US$',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01' ]=N: ['CustoProduto','R$']\DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'Cotação US$');
+
+#['Realizado','US$','CustoProduto']=N:['Realizado','R$','CustoProduto']\DB('Premissas_Globais_Despesas',!Ano,'Orçamento',!Meses,'Cotação US$');
+
+
+['MargemBruta',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:if(['Faturamento']= 0, 0,['Faturamento']-['CustoProduto'] - ['Impostos s/ Produtos']-['Devolucao']);
+
+['PctMargemBruta',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]= if(['Faturamento']= 0, 0,['MargemBruta']/(['Faturamento']-['ImpostosProdutos']-['Devolucao']));
+
+
+
+['Devolucao','D01',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: DB('Premissas_Vendas',!Area de Negócio,!Ano,!Versões,!Meses,'Devoluções')*['Faturamento'];
+
+
+['Resultado Bruto Unitário',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]=N:if(['Volume']=0,0,['Resultado Bruto']\['Volume']);
+
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+
+['RealAcumulado','Total do Ano']= ['RealAcumulado','M12'];
+['RealAcumulado','M1']=['Realizado','M1'];
+['RealAcumulado','M2']=['RealAcumulado','M1']+['Realizado','M2'];
+['RealAcumulado','M3']=['RealAcumulado','M2']+['Realizado','M3'];
+['RealAcumulado','M4']=['RealAcumulado','M3']+['Realizado','M4'];
+['RealAcumulado','M5']=['RealAcumulado','M4']+['Realizado','M5'];
+['RealAcumulado','M6']=['RealAcumulado','M5']+['Realizado','M6'];
+['RealAcumulado','M7']=['RealAcumulado','M6']+['Realizado','M7'];
+['RealAcumulado','M8']=['RealAcumulado','M7']+['Realizado','M8'];
+['RealAcumulado','M9']=['RealAcumulado','M8']+['Realizado','M9'];
+['RealAcumulado','M10']=['RealAcumulado','M9']+['Realizado','M10'];
+['RealAcumulado','M11']=['RealAcumulado','M10']+['Realizado','M11'];
+['RealAcumulado','M12']=['RealAcumulado','M11']+['Realizado','M12'];
+
+
+
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=['Orcamento','M1'];
+['OrcadoAcumulado','M2']=['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+
+FEEDERS;
+
+
+['R$','PrecoVenda']=>['US$','PrecoVenda'];
+['R$','Faturamento',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>['US$','Faturamento'];
+
+
+
+['Faturamento']=>['ImpostosProdutos'],['Custo do Produto'],['MargemBruta'],['PctMargemBruta'],['Devolucao'],DB('Resultado',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Faturamento'),
+DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Faturamento');
+
+['Volume']=>['Custo do Produto'],['Resultado Bruto Unitário'];
+
+
+
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Devolução']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Devoluções');
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Impostos s/ Produtos']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Impostos');
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Custo do Produto']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Resultado Bruto');
+
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Devolução']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Devoluções');
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Impostos s/ Produtos']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Impostos');
+[{'Orçamento','Cenário 1','Sugerido', 'RevisaoOrcamento','Forecast','Cenário 2'},'D01','Custo do Produto']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Resultado Bruto');
+
+['Orçamento','D01',{'Faturamento','Volume','PrecoVenda','ImpostosProdutos','Devolucao','CustoProduto','MargemBruta','Resultado Bruto Unitário'}]=>['Orçamento Acumulado'];
+['Realizado','D01',{'Faturamento','Volume','PrecoVenda','ImpostosProdutos','Devolucao','CustoProduto','Resultado Bruto Unitário','MargemBruta'}]=>['Realizado Acumulado'];
+
+
+
+
+['Realizado','Total do Mês','Devolução']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Devoluções');
+['Realizado','Total do Mês','Impostos s/ Produtos']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Impostos');
+['Realizado','Total do Mês','Custo do Produto']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Resultado Bruto');
+
+['Realizado','Total do Mês','Devolução']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Devoluções');
+['Realizado','Total do Mês','Impostos s/ Produtos']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Impostos');
+['Realizado','Total do Mês','Custo do Produto']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,'Resultado Bruto');
+
+
+['Orcamento']=>['VarRealOrc'];
+
+['Realizado']=>['VarRealOrc'];
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+['Orçamento']=>['Orçamento Acumulado'];
+['Realizado']=>['Realizado Acumulado'];
+['M1','OrcadoAcumulado']=>['M2'];
+['M2','OrcadoAcumulado']=>['M3'];
+['M3','OrcadoAcumulado']=>['M4'];
+['M4','OrcadoAcumulado']=>['M5'];
+['M5','OrcadoAcumulado']=>['M6'];
+['M6','OrcadoAcumulado']=>['M7'];
+['M7','OrcadoAcumulado']=>['M8'];
+['M8','OrcadoAcumulado']=>['M9'];
+['M9','OrcadoAcumulado']=>['M10'];
+['M11','OrcadoAcumulado']=>['M12'];
+['M1','RealAcumulado']=>['M2'];
+['M2','RealAcumulado']=>['M3'];
+['M3','RealAcumulado']=>['M4'];
+['M4','RealAcumulado']=>['M5'];
+['M5','RealAcumulado']=>['M6'];
+['M6','RealAcumulado']=>['M7'];
+['M7','RealAcumulado']=>['M8'];
+['M8','RealAcumulado']=>['M9'];
+['M9','RealAcumulado']=>['M10'];
+['M10','RealAcumulado']=>['M11'];
+['M11','RealAcumulado']=>['M12'];
+
+
+['R$','Realizado']=>DB('Indicadores_Faturamento',!Area de Negócio,!Ano,!Meses,!Dia,!Produtos,!Contas Faturamento);

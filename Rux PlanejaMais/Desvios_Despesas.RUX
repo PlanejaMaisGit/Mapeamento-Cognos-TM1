@@ -1,0 +1,10 @@
+﻿FORMAT==100
+#SKIPCHECK;
+#FEEDSTRINGS;
+
+#[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+['% Realizado']=DB('Despesas_Custos_Rateadas',!Centro de Custo,!Ano,!Meses,!Contas Controle,'PctVarRealOrc');
+
+#FEEDERS;
+

@@ -1,0 +1,35 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=C: ConsolidatedAvg(2,'Premissas_Globais_Despesas',!Ano,!Versões,!Meses,!Premissas Globais);
+FEEDERS;
+
+
+['03021002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503021','Total Centro Custo');
+['03019002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503019','Total Centro Custo');
+['03035002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503035','Total Centro Custo');
+['03063002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503063','Total Centro Custo');
+['03100001',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,'M12','503100','Total Centro Custo');
+['03085001',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503085','Total Centro Custo');
+['03002006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503002','Total Centro Custo');
+['03002006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603002','Total Centro Custo');
+['03002006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603010','Total Centro Custo');
+['03019002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603019','Total Centro Custo');
+['03040005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603040007','Total Centro Custo');
+['03035002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603035','Total Centro Custo');
+['03063002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603063','Total Centro Custo');
+['03100001',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603100','Total Centro Custo');
+['01002007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'601002007','Total Centro Custo');
+['01002008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'601002008','Total Centro Custo');
+['01002009',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'601002009','Total Centro Custo');
+['03006011',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603006','Total Centro Custo');
+['03006011',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503006','Total Centro Custo');
+['03021002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'603021','Total Centro Custo');
+
+#['Orçamento']=>DB('Premissas_Direcionadores',!Ano,'Orçamento','M1','Total','Total Centro Custo');
+

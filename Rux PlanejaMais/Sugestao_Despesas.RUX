@@ -1,0 +1,8 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+['Inflacao']=C:
+	ConsolidatedAvg(2,'Sugestao_Despesas',!Ano,!Meses,!Plano de Contas,!Centro de Custo,'Inflacao');
+
+FEEDERS;
+

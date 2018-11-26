@@ -1,0 +1,73 @@
+﻿FORMAT==100
+FORMAT==100
+skipcheck;
+feedstrings;
+
+['Número de Prospecções']=N: if(
+
+DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Vendedor')@=
+
+ATTRS('Area de Negócio', !Area de Negócio, 'Descrição'),
+
+1,0);
+
+
+
+['Número de Visitas']=N: if(
+DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Vendedor')@=
+ATTRS('Area de Negócio', !Area de Negócio, 'Descrição'),
+if(DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Visitas')@='Sim',
+1,0),0);
+
+
+
+
+
+['Nome da Empresa']=S: if(DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Vendedor')@=ATTRS('Area de Negócio', !Area de Negócio, 'Descrição'),
+
+DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Cliente'), '');
+
+['Contato']=S: if(DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Vendedor')@=ATTRS('Area de Negócio', !Area de Negócio, 'Descrição'),
+
+DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Contato'), '');
+
+['Status da Oportunidade']=S: if(DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Vendedor')@=ATTRS('Area de Negócio', !Area de Negócio, 'Descrição'),
+
+DB('Oportunidades',!Ano,!Meses, !Itens Headcount,'Status'), '');
+
+['Número de Qualificações']= N: if(DB('Vendas',!Area de Negócio,!Ano,!Meses, !Itens Headcount,'Risco')@<>'', 1, 0);
+
+['Número de Propostas']=N: if(
+['Valor']<>0, 1 , 0);
+
+
+['Número de Negócios Fechados']= N: if(
+DB('Vendas',!Area de Negócio,!Ano,!Meses, !Itens Headcount,'Status')@='Fechado', 1 , 0);
+
+
+['Número de Negociações']= N: if(DB('Vendas',!Area de Negócio,!Ano,!Meses, !Itens Headcount,'Status')@<>'', 1, 0);
+
+['Faturamento Planejado']=N:DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$','Orçamento','Faturamento');
+['Faturamento Planejado']=C: ConsolidatedAvg(2,'Vendas',!Area de Negócio,!Ano,!Meses,!Itens Headcount,!Vendas);
+
+['Metas']=C: 0;
+['Proposta']=C: 0;
+
+
+
+
+
+Feeders;
+['Status']=>['Número de Negócios Fechados'];
+['Valor']=>['Número de Propostas'];
+['Risco']=>['Número de Qualificações'];
+['Status']=>['Número de Negociações'];
+['Nome da Empresa']=>['Número de Prospecções'];
+['Número de Prospecções']=>DB('Orcamento_Oportunidades',!Area de Negócio,!Meses,!Ano,'Realizado','Número de Prospecções');
+['Número de Visitas']=>DB('Orcamento_Oportunidades',!Area de Negócio,!Meses,!Ano,'Realizado','Número de Visitas');
+['Número de Propostas']=>DB('Orcamento_Oportunidades',!Area de Negócio,!Meses,!Ano,'Realizado','Número de Propostas');
+['Número de Negócios Fechados']=>DB('Orcamento_Oportunidades',!Area de Negócio,!Meses,!Ano,'Realizado','Número de Negócios Fechados');
+
+
+
+

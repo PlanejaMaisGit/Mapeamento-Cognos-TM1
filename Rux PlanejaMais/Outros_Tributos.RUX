@@ -1,0 +1,20 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+['pctRATAjust']=C: ConsolidatedAvg(2,'Outros_Tributos',!Ano, !Versões, !Areas de Negócios, !Outros Tributos RH, !Recursos Humanos);
+
+['pctTerceiros']=C: ConsolidatedAvg(2,'Outros_Tributos',!Ano, !Versões, !Areas de Negócios, !Outros Tributos RH, !Recursos Humanos);
+
+
+FEEDERS;
+
+['Todas Areas','pctRATAjust','RecursosHumanos',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,'Total do Ano','PctRATAjust','Total Centro Custo');
+
+
+['Todas Areas','pctTerceiros','RecursosHumanos',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=>DB('Tributos_Impostos',!Ano,!Versões,'Total do Ano','pctTerceiros','Total Centro Custo');
+
+

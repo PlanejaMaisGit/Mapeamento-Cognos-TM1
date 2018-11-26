@@ -1,0 +1,6 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+#['Inflacao'=ConsolidatedAvg(2,'Parametros_Vendas',!Ano,!4AllMeses,!1VenFaturaIndic,!2VenAreaNegocio,!2VenProdutos,'Inflacao');
+
+FEEDERS;

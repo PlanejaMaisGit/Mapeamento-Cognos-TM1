@@ -1,0 +1,13 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+[]=S:
+if(DB('Plano_Acao',!Itens Headcount,'Status')@='Aberto',
+ DB('Plano_Acao',!Itens Headcount,!Progresso.),
+continue
+);
+
+
+feeders;
+

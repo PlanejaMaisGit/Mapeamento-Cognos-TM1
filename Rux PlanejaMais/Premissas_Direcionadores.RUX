@@ -1,0 +1,657 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+#----MANUTENÇÃO DE VEICULOS CONTA - 503002
+
+['503002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=   (['503002001']*['503002004'])+(['503002002']*['503002004'])+(['503002004']*['503002005'])+(['503002003']*['503002004']);
+
+
+#----'REAJUSTE ENERGIA
+
+['M2','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M1','503006005']);
+['M3','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M2','503006005']);
+['M4','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M3','503006005']);
+['M5','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M4','503006005']);
+['M6','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M5','503006005']);
+['M7','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M6','503006005']);
+['M8','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M7','503006005']);
+['M9','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M8','503006005']);
+['M10','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M9','503006005']);
+['M11','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M10','503006005']);
+['M12','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006005'],['M11','503006005']);
+['M2','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M1','603006005']);
+['M3','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M2','603006005']);
+['M4','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M3','603006005']);
+['M5','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M4','603006005']);
+['M6','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M5','603006005']);
+['M7','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M6','603006005']);
+['M8','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M7','603006005']);
+['M9','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M8','603006005']);
+['M10','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M9','603006005']);
+['M11','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M10','603006005']);
+['M12','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006005'],['M11','603006005']);
+
+['M2','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','503006005'],['M12','503006005']);
+['M3','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','503006005'],['M12','503006005']);
+['M4','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','503006005'],['M12','503006005']);
+['M5','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','503006005'],['M12','503006005']);
+['M6','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','503006005'],['M12','503006005']);
+['M7','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','503006005'],['M12','503006005']);
+['M8','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','503006005'],['M12','503006005']);
+['M9','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','503006005'],['M12','503006005']);
+['M10','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','503006005'],['M12','503006005']);
+['M11','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','503006005'],['M12','503006005']);
+['M12','503006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','503006005'],['M12','503006005']);
+['M2','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','603006005'],['M12','603006005']);
+['M3','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','603006005'],['M12','603006005']);
+['M4','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','603006005'],['M12','603006005']);
+['M5','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','603006005'],['M12','603006005']);
+['M6','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','603006005'],['M12','603006005']);
+['M7','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','603006005'],['M12','603006005']);
+['M8','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','603006005'],['M12','603006005']);
+['M9','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','603006005'],['M12','603006005']);
+['M10','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','603006005'],['M12','603006005']);
+['M11','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','603006005'],['M12','603006005']);
+['M12','603006005',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','603006005'],['M12','603006005']);
+
+['M2','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M1','503006006']);
+['M3','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M2','503006006']);
+['M4','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M3','503006006']);
+['M5','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M4','503006006']);
+['M6','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M5','503006006']);
+['M7','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M6','503006006']);
+['M8','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M7','503006006']);
+['M9','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M8','503006006']);
+['M10','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M9','503006006']);
+['M11','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M10','503006006']);
+['M12','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006006'],['M11','503006006']);
+['M2','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M1','603006006']);
+['M3','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M2','603006006']);
+['M4','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M3','603006006']);
+['M5','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M4','603006006']);
+['M6','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M5','603006006']);
+['M7','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M6','603006006']);
+['M8','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M7','603006006']);
+['M9','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M8','603006006']);
+['M10','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M9','603006006']);
+['M11','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M10','603006006']);
+['M12','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006006'],['M11','603006006']);
+
+['M2','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','503006006'],['M12','503006006']);
+['M3','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','503006006'],['M12','503006006']);
+['M4','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','503006006'],['M12','503006006']);
+['M5','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','503006006'],['M12','503006006']);
+['M6','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','503006006'],['M12','503006006']);
+['M7','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','503006006'],['M12','503006006']);
+['M8','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','503006006'],['M12','503006006']);
+['M9','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','503006006'],['M12','503006006']);
+['M10','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','503006006'],['M12','503006006']);
+['M11','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','503006006'],['M12','503006006']);
+['M12','503006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','503006006'],['M12','503006006']);
+['M2','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','603006006'],['M12','603006006']);
+['M3','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','603006006'],['M12','603006006']);
+['M4','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','603006006'],['M12','603006006']);
+['M5','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','603006006'],['M12','603006006']);
+['M6','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','603006006'],['M12','603006006']);
+['M7','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','603006006'],['M12','603006006']);
+['M8','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','603006006'],['M12','603006006']);
+['M9','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','603006006'],['M12','603006006']);
+['M10','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','603006006'],['M12','603006006']);
+['M11','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','603006006'],['M12','603006006']);
+['M12','603006006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','603006006'],['M12','603006006']);
+
+['M2','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M1','503006007']);
+['M3','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M2','503006007']);
+['M4','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M3','503006007']);
+['M5','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M4','503006007']);
+['M6','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M5','503006007']);
+['M7','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M6','503006007']);
+['M8','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M7','503006007']);
+['M9','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M8','503006007']);
+['M10','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M9','503006007']);
+['M11','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M10','503006007']);
+['M12','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006007'],['M11','503006007']);
+['M2','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M1','603006007']);
+['M3','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M2','603006007']);
+['M4','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M3','603006007']);
+['M5','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M4','603006007']);
+['M6','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M5','603006007']);
+['M7','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M6','603006007']);
+['M8','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M7','603006007']);
+['M9','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M8','603006007']);
+['M10','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M9','603006007']);
+['M11','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M10','603006007']);
+['M12','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006007'],['M11','603006007']);
+
+['M2','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','503006007'],['M12','503006007']);
+['M3','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','503006007'],['M12','503006007']);
+['M4','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','503006007'],['M12','503006007']);
+['M5','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','503006007'],['M12','503006007']);
+['M6','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','503006007'],['M12','503006007']);
+['M7','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','503006007'],['M12','503006007']);
+['M8','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','503006007'],['M12','503006007']);
+['M9','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','503006007'],['M12','503006007']);
+['M10','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','503006007'],['M12','503006007']);
+['M11','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','503006007'],['M12','503006007']);
+['M12','503006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','503006007'],['M12','503006007']);
+['M2','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','603006007'],['M12','603006007']);
+['M3','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','603006007'],['M12','603006007']);
+['M4','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','603006007'],['M12','603006007']);
+['M5','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','603006007'],['M12','603006007']);
+['M6','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','603006007'],['M12','603006007']);
+['M7','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','603006007'],['M12','603006007']);
+['M8','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','603006007'],['M12','603006007']);
+['M9','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','603006007'],['M12','603006007']);
+['M10','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','603006007'],['M12','603006007']);
+['M11','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','603006007'],['M12','603006007']);
+['M12','603006007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=N:IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','603006007'],['M12','603006007']);
+
+['M2','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M1','503006008']);
+['M3','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M2','503006008']);
+['M4','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M3','503006008']);
+['M5','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M4','503006008']);
+['M6','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M5','503006008']);
+['M7','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M6','503006008']);
+['M8','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M7','503006008']);
+['M9','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M8','503006008']);
+['M10','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M9','503006008']);
+['M11','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M10','503006008']);
+['M12','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','503006008'],['M11','503006008']);
+['M2','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M1','603006008']);
+['M3','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M2','603006008']);
+['M4','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M3','603006008']);
+['M5','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M4','603006008']);
+['M6','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M5','603006008']);
+['M7','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M6','603006008']);
+['M8','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M7','603006008']);
+['M9','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M8','603006008']);
+['M10','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M9','603006008']);
+['M11','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M10','603006008']);
+['M12','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas','PctReajuste')/100)*['M1','603006008'],['M11','603006008']);
+
+['M2','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','503006008'],['M12','503006008']);
+['M3','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','503006008'],['M12','503006008']);
+['M4','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','503006008'],['M12','503006008']);
+['M5','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','503006008'],['M12','503006008']);
+['M6','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','503006008'],['M12','503006008']);
+['M7','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','503006008'],['M12','503006008']);
+['M8','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','503006008'],['M12','503006008']);
+['M9','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','503006008'],['M12','503006008']);
+['M10','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','503006008'],['M12','503006008']);
+['M11','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','503006008'],['M12','503006008']);
+['M12','503006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','503006008'],['M12','503006008']);
+['M2','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Fev',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M1','603006008'],['M12','603006008']);
+['M3','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mar',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M2','603006008'],['M12','603006008']);
+['M4','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Abr',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M3','603006008'],['M12','603006008']);
+['M5','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Mai',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M4','603006008'],['M12','603006008']);
+['M6','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jun',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M5','603006008'],['M12','603006008']);
+['M7','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Jul',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M6','603006008'],['M12','603006008']);
+['M8','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Ago',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M7','603006008'],['M12','603006008']);
+['M9','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Set',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M8','603006008'],['M12','603006008']);
+['M10','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Out',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M9','603006008'],['M12','603006008']);
+['M11','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Nov',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M10','603006008'],['M12','603006008']);
+['M12','603006008',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','MesReajuste')@='Dez',(1+DB('Reajuste_Energia',!Ano,!Versões,'Premissas2','PctReajuste')/100)*['M11','603006008'],['M12','603006008']);
+
+['603006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=IF(['603006001']=0,['603006013'], ((['603006001']*['603006005'])+(['603006002']*['603006006'])+(['603006003']*['603006007'])+(['603006004']*['603006008']))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006009'))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006010'))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006011'))+['603006012']+['603006013']);
+['503006',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]= IF(['503006001']=0,['503006013'], ((['503006001']*['503006005'])+(['503006002']*['503006006'])+(['503006003']*['503006007'])+(['503006004']*['503006008']))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006009'))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006010'))*(1+DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03006011'))+['503006012']+['503006013']);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502001']=N: IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+ DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'Sal'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502003']=N: IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'I.N.S.S.'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502004']=N: IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'FGTS'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502005']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'PIS'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502006']=N: IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'ProvFerias'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'502007']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='5',
+DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'ProvDecTercSal'),0);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602001']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'Sal'),0);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602003']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'I.N.S.S.'),0);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602004']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'FGTS'),0);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602005']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'PIS'),0);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602006']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'ProvFerias'),0);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'602007']=N:IF(
+ATTRS('Centro de Custo',!Centro de Custo,'Posicao')@='6',DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'ProvDecTercSal'),0);
+
+
+#----TRABALHADORES AVULSOS CONTA - 503009
+
+['503009',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['503009001']*['503009002']*['503009003'])+['503009004'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'503010']=['503010003'];
+
+#----PREST. SERVICOS INSS - CONTA 503068
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'503068']=(['503068005']+['503068004']+(['503068003']*['503068001']))*['503068002'];
+
+
+#----PARTICIPAÇÃO DOS RESULTADOS CONTA - 503085
+
+['503085']= (DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03085001') / 100 * DB('Mao_Obra_Pessoal',!Ano,!Versões,!Meses,!Centro de Custo,'Sal')) + ['503085001'];
+
+
+#----CESTAS DE NATAL CONTA - 503100
+
+['503100',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M12']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','Headcount Dez') * DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03100001')) +
+	(['503100002'] * DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03100001 - Vlr Cesta Natal')) + ['503100001 - Outros R$'];
+
+
+#----COMISSOES DE VENDAS CONTA - 504002
+
+['504002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]= ['504002001'] * DB('Faturamento',!Versões,!Ano,!Meses,'Total do Mês','R$','Total de Produtos','Faturamento') / 100;
+
+
+#----FRETES E SEGUROS CONTA - 504004
+
+['504004',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]= (['504004001']*['504004002'])+['504004003'];
+
+
+#----FRETE RODOVIARIOS/EXTERNO CONTA - 509012
+
+['509012',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]= ['509012001']*['509012002'];
+
+#----FRETE MARITIMO/EXTERNO - 509013
+
+['509013',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['509013002']*DB('Premissas_Vendas',!Ano,!Versões,!Meses,'Cotação US$','Total'))*['509013001'];
+
+#----DESPACHOS ADUANEIROS CONTA - 509014
+
+['509014',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['509014001']+['509014002'])*['509014003'];
+
+#----ESTADIA/ DETENTIONS CONTA - 509015
+
+['509015',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=((['509015001']+['509015002'])*['509015003'])+(['509015004']*['509015005']);
+
+#----TAXAS DIVERSAS EXPORTACAO CONTA - 509016
+
+['509016',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=((['509016001']+['509016002'])*['509016003']);
+
+#MATERIAS PRIMA SECUNDARIA CONTA - 601002
+
+['601002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['601002010'];
+['601002003']=0;
+['601002007']=0;
+['601002008']=0;
+['601002009']=0;
+
+#----OUTROS INSUMOS CONTA - 601003
+
+['601003',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=
+	((['601003002 Kg de Produtos Acabados'] * ['601003004 Kg de Produtos de Carne'])+
+	(['601003003 Índice (Kg) cavaco p/ kg farinha vísceras cód.12328 e óleo cód.12331']*['601003005 Kg de Produtos FFO - cod.12328'])+
+	(['601003003 Índice (Kg) cavaco p/ kg farinha vísceras cód.12328 e óleo cód.12331']*['601003006 Kg de Produtos FFO - cód.12331']))*['601003001 R$ p/ kg Produto Acabado'];
+
+#----LENHA CONTA - 601004
+['601004',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'019 .060.60407']=['601004002']*(['601004003']*['601004004']);
+
+#----MANUTENCAO E CONSUMO COM VEICULOS CONTA - 603002
+
+['603002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['603002005']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006'))+ ((['603002002']*['603002004'])+['603002003']);
+['603002',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=((['603002001']+['603002002'])*['603002004'])+['603002003'];
+
+#----MATERIAL DE USO E CONSUMO CONTA - 603010
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M1']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HJan')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HJan') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021'] - ['603010022'] - ['603010023'] + ['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M2']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HFev')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HFev') * (['603010011']+['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021'] - ['603010022'] - ['603010023'] + ['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M3']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HMar')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HMar') * (['603010011']+['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021'] - ['603010022'] - ['603010023'] + ['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M4']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M5']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M6']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M7']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M8']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M9']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M10']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M11']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M12']=
+	((['603010001'] * (['603010003'] + ['603010004'] + ['603010005'] + ['603010006'] + ['603010012'])) + ((['603010007'] + ['603010008'] +
+	['603010009']) * ['603010001'] * DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')) +
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr') * (['603010011'] + ['603010010'])) + ((['603010013'] *
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03002006') * ['603010001']) + (['603010015'] * ['603010016'] * ['603010001'])) +
+	['603010017']) - ['603010018'] - ['603010019'] - ['603010020'] - ['603010021']-['603010022']-['603010023']+['603010024'];
+
+['603010', {'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['603010001']*['603010002'])+['603010003'];
+
+#----ALUGUEIS CONTA -  603016
+
+['603016',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['603016001']+['603016002']+['603016003']+['603016004'];
+
+#----IMPOSTOS E TAXAS CONTA - 603019
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M1']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HJan')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M2']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HFev')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M3']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HMar')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M4']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAbr')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M5']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HMai')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M6']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HJun')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M7']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HJul')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M8']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HAgo')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M9']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HSet')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M10']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HOut')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M11']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HNov')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+['603019',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M12']=
+	(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,'TotalItens','HDez')*
+	DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03019002'))+(['603019003']+['603019004']+['603019005']+['603019006']+['603019007']);
+
+
+#----ASSISTENCIA HOSPITALAR CONTA 603035
+
+['603035',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03035002')*['603035001'])+['603035003'];
+
+
+#----BLOCOS DE PASSAGEM CONTA - 603040
+
+['603040004',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['603040001']*['603040002']*['603040003'];
+['603040007',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['603040005']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03040005')/100)*['603040001'];
+['603040',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['603040004']+['603040008']-['603040007'];
+
+
+#----CONSUMO DE LENHA CONTA - 603041
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'603041']=0;
+
+#----REC. CUSTOS ALIMENTACAO CONTA - 603061
+
+['503061',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['503061001']*['503061002']*['503061003']);
+['603061',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=(['603061001']*['603061002']*['603061003']);
+
+#----VALE CESTA BASICA CONTA - 603063
+
+['503063',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['503063001']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03063002');
+['603063',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=['603063001']*DB('Premissas_Globais_Despesas',!Ano,!Versões,!Meses,'03063002');
+
+
+
+
+#-------------------------------------------
+
+feeders;
+#-------------------------------------------
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,!Versões,!Premissas Despesas);
+
+#----MATERIAL DE USO E CONSUMO CONTA - 503010
+
+['503010005']=>['503010'];
+['503010003']=>['503010'];
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'503010005','503010003'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503010',!Versões);
+
+
+#----IMPOSTOS E TAXAS CONTA - 503019
+
+#503019, talvez precise de feeder do cubo Quantidade_Funcionarios e premissas globais
+['503019003']=>['503019'];
+['503019004']=>['503019'];
+['503019005']=>['503019'];
+['503019006']=>['503019'];
+['503019007']=>['503019'];
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'503019003','503019004','503019005','503019006','503019007'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503019',!Versões);
+
+
+#----ASSISTENCIA HOSPITALAR CONTA - 503035
+
+#503035
+['503035001']=>['503035'];
+['503035003']=>['503035'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast','Realizado'},{'503035001','503035003'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503035',!Versões);
+
+
+#----CONSUMO DE LENHA CONTA - 503041
+
+[ '503041002']=>['503041'];
+[ '503041003']=>['503041'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'503041']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503041',!Versões);
+
+
+#----FRETE FROTA PROPRIA CONTA - 503077
+
+['503077001']=>['503077'];
+['503077002']=>['503077'];
+['503077003']=>['503077'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'503077']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503077',!Versões);
+
+
+#----PARTICIPAÇÃO DOS RESULTADOS CONTA - 503085
+
+#503085, pedir ajuda nos feeders
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'503085001']=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'503085',!Versões);
+
+
+#----COMISSOES DE VENDAS CONTA - 504002
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'504002']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'504002',!Versões);
+
+
+#----FRETES E SEGUROS CONTA - 504004
+
+['504004001']=>['504004'];
+['504004002']=>['504004'];
+['504004003']=>['504004'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'504004001','504004002','504004003'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'504004',!Versões);
+
+
+#----REPRENSENTACAO AUTONOMOS CONTA - 504013
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'504013']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'504013',!Versões);
+
+
+#----INDENIZ. DEL CREDERE CONTA - 504014
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'504014']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'504014',!Versões);
+
+
+#----MATERIA PRIMA SECUNDARIA CONTA - 601002
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'601002']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'601002',!Versões);
+
+#----OUTROS INSUMOS CONTA - 601003
+
+['601003002']=>['601003'];
+['601003004']=>['601003'];
+['601003003']=>['601003'];
+['601003005']=>['601003'];
+['601003006']=>['601003'];
+['601003001']=>['601003'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'601003001','601003002','601003003','601003004','601003005','601003006'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'601003',!Versões);
+
+
+#----LIENHA CONTA - 601004
+
+['601004002']=>['601004'];
+['601004003']=>['601004'];
+['601004004']=>['601004'];
+
+#----HEXANO CONTA - 601005
+
+['601005002']=>['601005'];
+['601005004']=>['601005'];
+['601005003']=>['601005'];
+['601005005']=>['601005'];
+['601005001']=>['601005'];
+['601005006']=>['601005'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'601005']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'601005',!Versões);
+
+#----MANUNTENCAO E CONSUMO DE VEICULOS - CONTA 603002
+
+['603002005']=>['603002'];
+['603002001']=>['603002'];
+['603002003']=>['603002'];
+['603002004']=>['603002'];
+['603002002']=>['603002'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603002005','603002001','603002003','603002004','603002002'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603002',!Versões);
+
+#----ENERGIA ELETRICA CONTA - 603006
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'603006']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603006',!Versões);
+
+#----MATERIAL DE USO E CONSUMO CONTA 603010
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'603010']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603010',!Versões);
+
+#----ALUGUEIS CONTA - 603016
+
+['603016001']=>['603016'];
+['603016002']=>['603016'];
+['603016003']=>['603016'];
+['603016004']=>['603016'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603016001','603016002','603016003','603016004'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603016',!Versões);
+
+#IMPOSTOS E TAXAS CONTA - 603019
+
+['603019003']=>['603019'];
+['603019004']=>['603019'];
+['603019005']=>['603019'];
+['603019006']=>['603019'];
+['603019007']=>['603019'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603019003','603019004','603019005','603019006','603019007'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603019',!Versões);
+
+
+#----ASSISTENCIA HOSPITALAR CONTA 603035
+
+['603035001']=>['603035'];
+['603035003']=>['603035'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603035001','603035003'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603035',!Versões);
+
+#----BLOCOS DE PASSAGEM CONTA - 603040
+
+['603040001']=>['603040004'],['603040007'];
+['603040002']=>['603040004'];
+['603040003']=>['603040004'];
+['603040005']=>['603040007'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603040001','603040002','603040003'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603040004',!Versões);
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603040001','603040005'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603040007',!Versões);
+
+['603040004']=>['603040'];
+['603040007']=>['603040'];
+['603040008']=>['603040'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603040004','603040007','603040008'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603040',!Versões);
+
+#----REC. CUSTOS ALIMENTACAO CONTA - 603061
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'603061']	=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603061',!Versões);
+
+#----VALE CESTA BASICA CONTA - 603063
+
+['603063001']=>['603063'];
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},{'603063001'}]=>DB('Despesas_Custos',!Centro de Custo,!Ano,!Meses,'603063',!Versões);
+

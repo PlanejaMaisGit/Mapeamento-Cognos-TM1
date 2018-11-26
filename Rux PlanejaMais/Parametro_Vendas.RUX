@@ -1,0 +1,11 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Margem de Tolerância']=C:  ConsolidatedAvg(2,'Parametro_Vendas',!AreaSemVendedor,'Margem de Tolerância');
+
+
+
+FEEDERS;
+
+

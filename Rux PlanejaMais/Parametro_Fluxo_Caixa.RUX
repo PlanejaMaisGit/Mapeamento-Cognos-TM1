@@ -1,0 +1,17 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+
+
+['Todas Areas']=ConsolidatedAvg(2, 'Parametro_Fluxo_Caixa',!Ano,!Meses,!Versões,!Areas de Negócios,!Parâmetro Fluxo);
+
+['Total do Ano']=ConsolidatedAvg(2, 'Parametro_Fluxo_Caixa',!Ano,!Meses,!Versões,!Areas de Negócios,!Parâmetro Fluxo);
+
+FEEDERS;
+
+
+

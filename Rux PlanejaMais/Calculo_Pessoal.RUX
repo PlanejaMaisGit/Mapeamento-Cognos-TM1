@@ -1,0 +1,124 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+
+['M1','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M1Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HJan');
+['M2','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M2Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HFev');
+['M3','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M3Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HMar');
+['M4','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M4Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HAbr');
+['M5','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M5Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HMai');
+['M6','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M6Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HJun');
+['M7','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M7Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HJul');
+['M8','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M8Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HAgo');
+['M9','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M9Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HSet');
+['M10','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M10Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HOut');
+['M11','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M11Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HNov');
+['M12','Salarios',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M12Sal')\DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'HDez');
+
+
+['Insalubridade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:
+if(['Salários']=0,0,
+if(DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Insalubridade')@='Sim',
+['Salários']*DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Insalubridade'),
+0
+));
+
+['Periculosidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:
+if(['Salários']=0,0,
+IF(
+DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Periculosidade')@='Sim',
+['Salarios']*DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Periculosidade'),
+0
+));
+
+
+
+
+['Assiduidade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:
+if(['Salários']=0,0,
+IF(
+DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'Assiduidade')@='Sim',
+DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Assiduidade'),
+0
+));
+
+['AdicNoturno',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}] = N:
+if(['Salários']=0,0,
+IF(
+DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'AdicNoturno')@='Sim',
+['Salários']/220 *
+DB('Impostos_Tributos',!Ano,!Versões, !Meses,'RecursosHumanos','PctAdicNoturno') * DB('Quantidade_Funcionarios',!Ano, !Versões,!Centro de Custo,!Itens Headcount,'HsAdicNot'),
+0
+));
+
+['Produtividade',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:
+DB('Quantidade_Funcionarios',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'PctProdutividade')*['Salários']
+;
+
+
+
+
+
+['HorasExtras','M1',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M1');
+['HorasExtras','M2',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M2');
+['HorasExtras','M3',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M3');
+['HorasExtras','M4',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M4');
+['HorasExtras','M5',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M5');
+['HorasExtras','M6',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M6');
+['HorasExtras','M7',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M7');
+['HorasExtras','M8',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M8');
+['HorasExtras','M9',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M9');
+['HorasExtras','M10',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M10');
+['HorasExtras','M11',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M11');
+['HorasExtras','M12',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N: ['Salários']/220 * 1.5 * DB('Horas_Extras_Funcionario',!Ano,!Versões,!Centro de Custo,!Itens Headcount,'M12');
+
+['INSS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'INSS',!Centro de Custo)*['Salário'];
+['FGTS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'FGTS',!Centro de Custo)*['Salário'];
+['PIS',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PIS',!Centro de Custo)*['Salário'];
+
+
+['RATAjust',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PctRATAjust',!Centro de Custo)*['Salário'];
+['Terceiros',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:DB('Tributos_Impostos',!Ano,!Versões,!Meses,'PctTerceiros',!Centro de Custo)*['Salário'];
+
+
+['ProvFerias',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:( (['Salário'] + ['INSS'] + ['RATAjust'] + ['Terceiros']+ ['FGTS'] + ['PIS'])/12) * 1.333333333333333;
+['ProvDecTerSal',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=N:(['Salário'] + ['INSS'] + ['RATAjust'] + ['Terceiros']+ ['FGTS'] + ['PIS']) / 12;
+
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=['Orcamento','M1'];
+['OrcadoAcumulado','M2']=['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+FEEDERS;
+['Orçamento']=>['Orçamento Acumulado'];
+
+['Orçamento','Salários'] => ['Cenário 1'],['Cenário 2'],['RevisaoOrcamento'],['forecast'];
+['Orçamento','Salarios']=>DB('Mao_Obra_Pessoal',!Ano,'Orçamento',!Meses,!Centro de Custo,'Salário');
+
+['Salarios']=>['Periculosidade'];
+['Salarios']=>['AdicNoturno'];
+['Salarios']=>['Insalubridade'];
+['Salarios']=>['Produtividade']	;
+['Salários']=>['Produtividade']	;
+['Salarios'] => ['Salário'];
+['INSS'] => ['I.N.S.S'];
+['Salários']=>['I.N.S.S'];
+['Salários']=>['FGTS'];
+['Salários']=>['PIS'];
+['Salários']=>['ProvFerias'];
+['Salários']=>['ProvDecTerSal'];
+['Salarios']=>['HorasExtras'];
+

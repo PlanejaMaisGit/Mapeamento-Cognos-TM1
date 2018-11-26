@@ -1,0 +1,21 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=C: ConsolidatedAvg(2,'Premissas_DRE',!Ano,!Versões,!Meses,!PremissasDRE);
+
+
+
+FEEDERS;
+['Provisão para Imposto de Renda']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','Provisão para Imposto de Renda')	;
+['Provisão para Contribuição Social']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','Provisão para Contribuição Social');
+['Transf. p/ FATES (Resultado Terceiros)']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','Transf. p/ FATES (Resultado Terceiros)');
+
+['FATES']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','FATES');
+
+['Fundo de Reserva Legal']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','Fundo de Reserva Legal');
+
+['Conta Capital']=>DB('DRE_Gerencial',!Versões,!Meses,!Ano,'R$','Conta Capital');
+

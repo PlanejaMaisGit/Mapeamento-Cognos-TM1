@@ -1,0 +1,94 @@
+﻿FORMAT==100
+FORMAT==100
+FEEDSTRINGS;
+
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+#EndRegion
+
+
+['Caixa']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010101');
+['Bancos']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010102');
+['Títulos Vinc. Merc. Aberto']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010103');
+['Créditos Assoc.']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10102');
+['Créditos Não Assoc.']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010302');
+['Clientes']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010301');
+['Tributos a Recuperar']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010314')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010315')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010316')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010317')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010318');
+['Adiantamento a Fornecedores']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010303');
+['Outros Créd. a Rec.']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010304')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010305')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010306')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010307')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010308')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010309')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010310')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses
+,'1010319')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010320')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010321')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1010322');
+['Estoques']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10111');
+['Ativo Biológico']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10108');
+['Despesas do Exercício Seguinte']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10150');
+
+############################################################## Ativo Nao Circulante
+
+['Créditos Associados']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10201');
+['Créditos Não Associados']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10202');
+['Depósitos Compulsórios']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'104');
+['Outros Créd. a Rec. LP']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1025001');
+['Despesas do Exercício Seguinte LP']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'1025002');
+['Investimentos']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10301');
+['Imobilizado']=DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10302');
+['Intangível']=DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10303');
+['Diferido']=DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10304');
+['Ativo Biológico LP']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'10305');
+
+############################################################## Passivo
+
+['Débitos Associados']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'20101');
+['Financiamentos']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010208')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010209')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010210')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010211')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010212')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010213')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010215');
+['Fornecedores']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010206');
+['Obrig. Sociais e Tributárias']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010204');
+['Obrigações c/ Pessoal']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010203');
+['Outros Déb. a Pagar']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010200')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2010201');
+['Depósitos Judiciais']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020205');
+['Financiamentos LP']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020208')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020209')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020210')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020211')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020212')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020213')+DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2020215');
+['Outros Déb. a Pagar LP']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'20201');
+['Capital Social Subscrito']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030101');
+['Subvenção p/ Investimentos']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030102');
+['Reserva Especial']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030108');
+['Fundo de Desenvolvimento']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030103003');
+['Fundo Reserva Legal']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030103001');
+['FATES']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030103002');
+['Reserva de Reavaliação']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030109');
+['Ajuste de Avaliação Patrimonial']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030110');
+['Sobras a Disposição da A.G.O.']=N:DB('Detalhamento_Balanco',!Ano,!Versões,!Meses,'2030106001');
+
+
+
+
+
+FEEDERS;
+
+
+
+
+
+['Caixa e Equivalentes de Caixa']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Venda de Mercadorias ou Serviços');
+['Fornecedores']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Aquisição de Materiais');
+['Obrigações c/ Pessoal']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Salários e Encargos Sociais');
+['Direitos Real. Exerc. Seguinte']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Direitos Real. Exerc. Seguinte');
+['Outros Déb. a Pagar']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Impostos e Multas');
+['Imobilizado']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Venda de Ativos Imobilizados');
+['Imobilizado']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Vendas de Equipamentos');
+['Ativo Biológico']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Aquisição de Ativos Imob.');
+['Financiamentos']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Investimentos Financeiros');
+['Investimentos']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Emissão de Ações');
+['Créditos e Valores']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Recebimento de Juros');
+['Débitos Associados']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Juros sobre Emprestimos');
+['Outros Déb. a Pagar']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Reaquisição de Ações Próprias');
+['Outros Déb. a Pagar']=>DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Outros Títulos');
+
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+
+

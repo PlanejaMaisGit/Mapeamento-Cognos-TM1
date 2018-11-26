@@ -1,0 +1,26 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M1']=N:DB('Cargos_Salarios',!Ano,!Versões,'M1',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M2']=N:DB('Cargos_Salarios',!Ano,!Versões,'M2',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M3']=N:DB('Cargos_Salarios',!Ano,!Versões,'M3',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M4']=N:DB('Cargos_Salarios',!Ano,!Versões,'M4',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M5']=N:DB('Cargos_Salarios',!Ano,!Versões,'M5',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M6']=N:DB('Cargos_Salarios',!Ano,!Versões,'M6',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M7']=N:DB('Cargos_Salarios',!Ano,!Versões,'M7',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M8']=N:DB('Cargos_Salarios',!Ano,!Versões,'M8',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M9']=N:DB('Cargos_Salarios',!Ano,!Versões,'M9',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M10']=N:DB('Cargos_Salarios',!Ano,!Versões,'M10',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M11']=N:DB('Cargos_Salarios',!Ano,!Versões,'M11',!Cargos,'Recursos Humanos');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'M12']=N:DB('Cargos_Salarios',!Ano,!Versões,'M12',!Cargos,'Recursos Humanos');
+
+
+
+
+FEEDERS;
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=>DB('Cargos_Salarios_Despesas',!Ano,!Versões,!Meses,!Cargos,!Centro de Custo);
+

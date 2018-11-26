@@ -1,0 +1,42 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['FGTS']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['INSS']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['PIS']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['SalMinimo']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['PctAdicNoturno']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['Assiduidade']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['PctRATAjust']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['PctTerceiros']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['Insalubridade']=C: ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+['Periculosidade']=C:ConsolidatedAvg(2, 'Tributos_Impostos',!Ano,!Versões,!Meses,!Tributos Impostos,!Centro de Custo);
+
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'Insalubridade']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Insalubridade');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'Periculosidade']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Periculosidade');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'FGTS']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','FGTS');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'PIS']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','PIS');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'INSS']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','INSS');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'SalMinimo']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','SalMinimo');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'PctAdicNoturno']= N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','PctAdicNoturno');
+[{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'},'Assiduidade']=N: DB('Impostos_Tributos',!Ano,!Versões,!Meses,'RecursosHumanos','Assiduidade');
+
+
+
+['PctTerceiros',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'005','PctTerceiros','RecursosHumanos');
+['PctTerceiros',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'007','PctTerceiros','RecursosHumanos');
+['PctTerceiros',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'019','PctTerceiros','RecursosHumanos');
+['PctTerceiros',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'024','PctTerceiros','RecursosHumanos');
+['PctRATAjust',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'005','pctRATAjust','RecursosHumanos');
+['PctRATAjust',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'007','pctRATAjust','RecursosHumanos');
+['PctRATAjust',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'019','pctRATAjust','RecursosHumanos');
+['PctRATAjust',{'Orçamento','Cenário 1','Cenário 2','RevisaoOrcamento','Forecast'}]=DB('Outros_Tributos',!Ano,!Versões,'024','pctRATAjust','RecursosHumanos');
+
+
+FEEDERS;
+
+
+
+

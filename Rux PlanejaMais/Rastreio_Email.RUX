@@ -1,0 +1,6 @@
+﻿FORMAT==100
+#SKIPCHECK;
+
+[]=DB('Resultado_Final',!AreaSemVendedor,!Ano,!Meses,'R$','Faturamento','PctVarRealOrc');
+
+FEEDERS;

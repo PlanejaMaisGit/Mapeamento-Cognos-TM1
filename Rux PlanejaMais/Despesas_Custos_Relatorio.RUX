@@ -1,0 +1,23 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+[]=N:DB('Despesas_Custos_Rateadas',!Centro de Custo,!Ano,!Meses,!Versões,!Plano de Contas);
+
+
+['Forecast'] = N:
+
+if(['Realizado']=0,['RevisaoOrcamento'],['Realizado']);
+
+
+feeders;
+
+['Realizado']=>DB('Despesas BSC',!Meses,!Centro de Custo,!Ano,!Plano de Contas,'Actual');
+
+['Orçamento']=>DB('Despesas BSC',!Meses,!Centro de Custo,!Ano,!Plano de Contas,'Target');
+
+
+
+

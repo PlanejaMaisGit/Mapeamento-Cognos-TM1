@@ -1,0 +1,147 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+['M1',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jan',(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste')
++DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase'],['SalBase']);
+
+['M2',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Fev',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jan',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M1']));
+
+['M3',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Mar',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Fev',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M2']));
+
+['M4',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Abr',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Mar',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M3']));
+
+['M5',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Mai',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Abr',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M4']));
+
+
+['M6',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jun',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Mai',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M5']));
+
+['M7',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jul',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jun',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M6']));
+
+['M8',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Ago',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Jul',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M7']));
+
+['M9',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Set',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Ago',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M8']));
+
+['M10',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Out',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Set',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M9']));
+
+['M11',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Nov',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Out',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M10']));
+
+['M12',{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]=IF(
+DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Dez',
+(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') +DB('Reajuste_Salarial',!Ano,!Versões, '% Reajuste p/ Provisões') )*['SalBase']
+,if(DB('Reajuste_Salarial',!Ano,!Versões ,'MesReajuste')@='Nov',['SalBase']*(1+DB('Reajuste_Salarial',!Ano,!Versões ,'PctReajuste') ),['M11']));
+
+
+FEEDERS;
+#
+['SalBase']=>['M1'];
+['SalBase']=>['M2'];
+['SalBase']=>['M3'];
+['SalBase']=>['M4'];
+['SalBase']=>['M5'];
+['SalBase']=>['M6'];
+['SalBase']=>['M7'];
+['SalBase']=>['M8'];
+['SalBase']=>['M9'];
+['SalBase']=>['M10'];
+['SalBase']=>['M11'];
+['SalBase']=>['M12'];
+['RecursosHumanos','M1']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M1',!Cargos,'Total');
+['RecursosHumanos','M2']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M2',!Cargos,'Total');
+['RecursosHumanos','M3']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M3',!Cargos,'Total');
+['RecursosHumanos','M4']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M4',!Cargos,'Total');
+['RecursosHumanos','M5']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M5',!Cargos,'Total');
+['RecursosHumanos','M6']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M6',!Cargos,'Total');
+['RecursosHumanos','M7']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M7',!Cargos,'Total');
+['RecursosHumanos','M8']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M8',!Cargos,'Total');
+['RecursosHumanos','M9']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M9',!Cargos,'Total');
+['RecursosHumanos','M10']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M10',!Cargos,'Total');
+['RecursosHumanos','M11']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M11',!Cargos,'Total');
+['RecursosHumanos','M12']=>DB('Cargos_Salarios_interno',!Ano,'Orcamento','M12',!Cargos,'Total');
+
+
+
+['RecursosHumanos','M1']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M1',!Cargos,'Total');
+['RecursosHumanos','M2']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M2',!Cargos,'Total');
+['RecursosHumanos','M3']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M3',!Cargos,'Total');
+['RecursosHumanos','M4']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M4',!Cargos,'Total');
+['RecursosHumanos','M5']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M5',!Cargos,'Total');
+['RecursosHumanos','M6']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M6',!Cargos,'Total');
+['RecursosHumanos','M7']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M7',!Cargos,'Total');
+['RecursosHumanos','M8']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M8',!Cargos,'Total');
+['RecursosHumanos','M9']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M9',!Cargos,'Total');
+['RecursosHumanos','M10']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M10',!Cargos,'Total');
+['RecursosHumanos','M11']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M11',!Cargos,'Total');
+['RecursosHumanos','M12']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 2','M12',!Cargos,'Total');
+
+['RecursosHumanos','M1']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M1',!Cargos,'Total');
+['RecursosHumanos','M2']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M2',!Cargos,'Total');
+['RecursosHumanos','M3']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M3',!Cargos,'Total');
+['RecursosHumanos','M4']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M4',!Cargos,'Total');
+['RecursosHumanos','M5']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M5',!Cargos,'Total');
+['RecursosHumanos','M6']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M6',!Cargos,'Total');
+['RecursosHumanos','M7']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M7',!Cargos,'Total');
+['RecursosHumanos','M8']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M8',!Cargos,'Total');
+['RecursosHumanos','M9']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M9',!Cargos,'Total');
+['RecursosHumanos','M10']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M10',!Cargos,'Total');
+['RecursosHumanos','M11']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M11',!Cargos,'Total');
+['RecursosHumanos','M12']=>DB('Cargos_Salarios_interno',!Ano,'Cenário 1','M12',!Cargos,'Total');
+
+['RecursosHumanos','M1']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M1',!Cargos,'Total');
+['RecursosHumanos','M2']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M2',!Cargos,'Total');
+['RecursosHumanos','M3']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M3',!Cargos,'Total');
+['RecursosHumanos','M4']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M4',!Cargos,'Total');
+['RecursosHumanos','M5']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M5',!Cargos,'Total');
+['RecursosHumanos','M6']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M6',!Cargos,'Total');
+['RecursosHumanos','M7']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M7',!Cargos,'Total');
+['RecursosHumanos','M8']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M8',!Cargos,'Total');
+['RecursosHumanos','M9']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M9',!Cargos,'Total');
+['RecursosHumanos','M10']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M10',!Cargos,'Total');
+['RecursosHumanos','M11']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M11',!Cargos,'Total');
+['RecursosHumanos','M12']=>DB('Cargos_Salarios_interno',!Ano,'RevisaoOrcamento','M12',!Cargos,'Total');
+
+['RecursosHumanos','M1']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M1',!Cargos,'Total');
+['RecursosHumanos','M2']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M2',!Cargos,'Total');
+['RecursosHumanos','M3']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M3',!Cargos,'Total');
+['RecursosHumanos','M4']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M4',!Cargos,'Total');
+['RecursosHumanos','M5']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M5',!Cargos,'Total');
+['RecursosHumanos','M6']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M6',!Cargos,'Total');
+['RecursosHumanos','M7']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M7',!Cargos,'Total');
+['RecursosHumanos','M8']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M8',!Cargos,'Total');
+['RecursosHumanos','M9']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M9',!Cargos,'Total');
+['RecursosHumanos','M10']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M10',!Cargos,'Total');
+['RecursosHumanos','M11']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M11',!Cargos,'Total');
+['RecursosHumanos','M12']=>DB('Cargos_Salarios_interno',!Ano,'Forecast','M12',!Cargos,'Total');

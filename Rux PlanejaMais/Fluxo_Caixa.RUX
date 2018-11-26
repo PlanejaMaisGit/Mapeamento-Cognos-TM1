@@ -1,0 +1,36 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','Realizado'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+
+['Inadimplência']= N: (['Vendas Prazo']*DB('Param_Fluxo',!Ano,!Meses,!Versões, !Areas de Negócios,'Índice de Inadimplência'));
+
+['Saldo Inicial','M1']=N: DB('Fluxo_Caixa',Attrs('Ano',!Ano,'Ano Anterior'),!Versões,Attrs('Meses',!Meses,'Mês Anterior'),'Saldo Final',!Areas de Negócios);
+
+['Saldo Inicial']=N: DB('Fluxo_Caixa',!Ano,!Versões,Attrs('Meses',!Meses,'Mês Anterior'),'Saldo Final',!Areas de Negócios);
+
+
+['Saldo Final']=N:['Caixa Líquido das Atividades Operacionais']+['Caixa Líquido das Atividades de Investimentos']+['Caixa Líquido das Atividades de Financiamentos'];
+
+
+
+
+FEEDERS;
+['Caixa Líquido das Atividades Operacionais']=>['Saldo Final'];
+['Caixa Líquido das Atividades de Investimentos']=>['Saldo Final'];
+['Caixa Líquido das Atividades de Financiamentos']=>['Saldo Final'];
+
+
+['Vendas']=>['Inadimplência'];
+
+['Vendas Prazo']=>['Inadimplência'];
+
+['Saldo Final']=>['Saldo Inicial'];
+
+
+
+
+
+

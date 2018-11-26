@@ -1,0 +1,24 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+['Realizado','Número de Prospecções']=N:
+DB('Vendas',!Area de Negócio,!Ano,!Meses,'Total Itens','Número de Prospecções');
+
+
+['Realizado','Número de Visitas']=N:
+DB('Vendas',!Area de Negócio,!Ano,!Meses,'Total Itens','Número de Visitas');
+
+['Realizado','Número de Propostas']=N:
+DB('Vendas',!Area de Negócio,!Ano,!Meses,'Total Itens','Número de Propostas');
+
+['Realizado','Número de Negócios Fechados']=N:
+DB('Vendas',!Area de Negócio,!Ano,!Meses,'Total Itens','Número de Negócios Fechados');
+
+
+
+
+
+
+feeders;
+

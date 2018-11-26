@@ -1,0 +1,61 @@
+﻿FORMAT==100
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+['Volume Soja']= ['SOJA - PR']+['SOJA COMERCIAL - SC']+ ['SOJA COMERCIAL - MS'];
+['Volume Milho']= ['MILHO - PR']+['MILHO COMERCIAL -MS'];
+['Volume Trigo'] = ['TRIGO - PR']+ ['TRIGO COMERCIAL - SC'] +['TRIGO COMERCIAL - MS'];
+['Volume Soja/Milho/Trigo']= ['Volume Soja'] + ['Volume Milho'] + ['Volume Trigo'];
+['% Soja'] = if( ['Volume Soja/Milho/Trigo']=0,0, ['Volume Soja'] / ['Volume Soja/Milho/Trigo']);
+['% Milho'] = if( ['Volume Soja/Milho/Trigo']=0,0, ['Volume Milho'] / ['Volume Soja/Milho/Trigo']);
+['% Trigo'] = if( ['Volume Soja/Milho/Trigo']=0,0, ['Volume Trigo'] / ['Volume Soja/Milho/Trigo']);
+
+#['001 .015'] = N: ['001 .065'];
+#['001 .027'] = N: ['001 .059'];
+#['001 .036'] = N: ['001 .007'];
+#['001 .038'] = N: ['001 .069'];
+#['001 .042'] = N: ['001 .003'];
+#['001 .043'] = N: ['001 .031'];
+#['001 .049'] = N: ['001 .008'];
+#['001 .104'] = N: ['001 .002'];
+#['001 .107'] = N: ['001 .014'];
+#['001 .114'] = N: ['001 .041'];
+#['001 .079'] = N: ['001 .074'];
+#['001 .103'] = N: ['001 .098'];
+
+FEEDERS;
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2','RevisaoOrcamento'},'Volume Soja/Milho/Trigo']=>	DB('Premissas_Direcionadores',!Ano,!Versões,!Meses,'503041','Total Centro Custo');
+
+['Orcamento']=>['OrcadoAcumulado'];
+['M1','OrcadoAcumulado']=>['M2'];
+['M1','OrcadoAcumulado']=>['M3'];
+['M1','OrcadoAcumulado']=>['M4'];
+['M1','OrcadoAcumulado']=>['M5'];
+['M1','OrcadoAcumulado']=>['M6'];
+['M1','OrcadoAcumulado']=>['M7'];
+['M1','OrcadoAcumulado']=>['M8'];
+['M1','OrcadoAcumulado']=>['M9'];
+['M1','OrcadoAcumulado']=>['M10'];
+['M1','OrcadoAcumulado']=>['M11'];
+['M1','OrcadoAcumulado']=>['M12'];
+
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+['SOJA - PR'] => ['Volume Soja'];
+['SOJA COMERCIAL - MS'] => ['Volume Soja'];
+['MILHO - PR'] => ['Volume Milho'];
+['MILHO COMERCIAL -MS'] => ['Volume Milho'];
+['TRIGO - PR'] => ['Volume Trigo'];
+['TRIGO COMERCIAL - MS'] => ['Volume Trigo'];
+['Volume Soja'] => ['Volume Soja/Milho/Trigo'];
+['Volume Milho'] => ['Volume Soja/Milho/Trigo'];
+['Volume Trigo'] =>  ['Volume Soja/Milho/Trigo'];
+['Volume Soja']  =>  ['% Soja'];
+['Volume Milho'] =>   ['% Milho'];
+['Volume Trigo']   =>  ['% Trigo'] ;
+

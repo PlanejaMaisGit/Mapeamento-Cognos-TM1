@@ -1,0 +1,6 @@
+﻿FORMAT==100
+[]=S:
+if(
+DB('Plano_Acao',!Itens Headcount,'Responsável')@=Attrs('Funcionários',!Funcionários,'Descrição'),
+DB('Plano_Acao',!Itens Headcount,!Progresso.),'');
+

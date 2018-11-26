@@ -1,0 +1,12 @@
+﻿FORMAT==100
+SKIPCHECK;
+FEEDSTRINGS;
+
+
+
+['Margem de Tolerância']=C:  ConsolidatedAvg(2,'Parametro_Despesas_Custos',!Centro De Custo,!Contas Controle, 'Margem de Tolerância');
+
+[{'501','502','503','504','505','506','507','508','509','510','514','515','6','601','602','603','604','605','606','6 3'},{'Destinatário Email 1','Destinatário Email 2'}]=S: '';
+
+FEEDERS;
+

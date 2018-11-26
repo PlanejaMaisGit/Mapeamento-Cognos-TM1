@@ -1,0 +1,116 @@
+﻿FORMAT==100
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'}]=N:
+if(ATTRS('Area de Negócio',!Area de Negócio,'Vendedor')@='Sim',
+DB('Despesas_Custos_Rateadas',ATTRS('Area de Negócio',!Area de Negócio,'Filial'), !Ano,!Meses,!Versões,!Plano de Contas),
+DB('Despesas_Custos_Rateadas',!Area de Negócio,!Ano,!Meses,!Versões,!Plano de Contas));
+
+
+['Total das Áreas de Negócios',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','RealAcumulado','OrcadoAcumulado'}]= ConsolidateChildren('Area de Negócio');
+
+#['Total do Ano',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast','OrcadoAcumulado'}]= ConsolidateChildren('Meses');
+
+['RealAcumulado','Total do Ano']= ['RealAcumulado','M12'];
+['RealAcumulado','M1']=N:['Realizado','M1'];
+['RealAcumulado','M2']=N:['RealAcumulado','M1']+['Realizado','M2'];
+['RealAcumulado','M3']=N:['RealAcumulado','M2']+['Realizado','M3'];
+['RealAcumulado','M4']=N:['RealAcumulado','M3']+['Realizado','M4'];
+['RealAcumulado','M5']=N:['RealAcumulado','M4']+['Realizado','M5'];
+['RealAcumulado','M6']=N:['RealAcumulado','M5']+['Realizado','M6'];
+['RealAcumulado','M7']=N:['RealAcumulado','M6']+['Realizado','M7'];
+['RealAcumulado','M8']=N:['RealAcumulado','M7']+['Realizado','M8'];
+['RealAcumulado','M9']=N:['RealAcumulado','M8']+['Realizado','M9'];
+['RealAcumulado','M10']=N:['RealAcumulado','M9']+['Realizado','M10'];
+['RealAcumulado','M11']=N:['RealAcumulado','M10']+['Realizado','M11'];
+['RealAcumulado','M12']=N:['RealAcumulado','M11']+['Realizado','M12'];
+
+
+['OrcadoAcumulado','Total do Ano']= ['OrcadoAcumulado','M12'];
+['OrcadoAcumulado','M1']=N:['Orcamento','M1'];
+['OrcadoAcumulado','M2']=N:['OrcadoAcumulado','M1']+['Orcamento','M2'];
+['OrcadoAcumulado','M3']=N:['OrcadoAcumulado','M2']+['Orcamento','M3'];
+['OrcadoAcumulado','M4']=N:['OrcadoAcumulado','M3']+['Orcamento','M4'];
+['OrcadoAcumulado','M5']=N:['OrcadoAcumulado','M4']+['Orcamento','M5'];
+['OrcadoAcumulado','M6']=N:['OrcadoAcumulado','M5']+['Orcamento','M6'];
+['OrcadoAcumulado','M7']=N:['OrcadoAcumulado','M6']+['Orcamento','M7'];
+['OrcadoAcumulado','M8']=N:['OrcadoAcumulado','M7']+['Orcamento','M8'];
+['OrcadoAcumulado','M9']=N:['OrcadoAcumulado','M8']+['Orcamento','M9'];
+['OrcadoAcumulado','M10']=N:['OrcadoAcumulado','M9']+['Orcamento','M10'];
+['OrcadoAcumulado','M11']=N:['OrcadoAcumulado','M10']+['Orcamento','M11'];
+['OrcadoAcumulado','M12']=N:['OrcadoAcumulado','M11']+['Orcamento','M12'];
+
+['VarRealOrc']=['Real']-['Orcamento'];
+['PctVarRealOrc']= if(['Orcamento']=0 & ['Realizado'] <> 0,1,
+if(['Orçamento']=0,0,['VarRealOrc']/['Orcamento']));
+
+
+FEEDERS;
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'510']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'514']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'515']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'501']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Pró-labore');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'502']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Pessoal');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'505']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Tributárias');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'509']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Vendas');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'504']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Vendas');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'902']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Financeiras');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'903']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'901']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'910']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'909']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'508']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Financeiras');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'507']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Financeiras');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503007']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503008']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'603007']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'603008']=>DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'901055']=> DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Resultado_Final Líquido'),
+ DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'EBTIDA R$');
+
+
+['Orçamento']=>['Orçamento Acumulado'];
+['Realizado']=>['Realizado Acumulado'];
+
+['M1','OrcadoAcumulado']=>['M2'];
+['M2','OrcadoAcumulado']=>['M3'];
+['M3','OrcadoAcumulado']=>['M4'];
+['M4','OrcadoAcumulado']=>['M5'];
+['M5','OrcadoAcumulado']=>['M6'];
+['M6','OrcadoAcumulado']=>['M7'];
+['M7','OrcadoAcumulado']=>['M8'];
+['M8','OrcadoAcumulado']=>['M9'];
+['M9','OrcadoAcumulado']=>['M10'];
+['M10','OrcadoAcumulado']=>['M11'];
+['M11','OrcadoAcumulado']=>['M12'];
+
+['M1','RealAcumulado']=>['M2'];
+['M2','RealAcumulado']=>['M3'];
+['M3','RealAcumulado']=>['M4'];
+['M4','RealAcumulado']=>['M5'];
+['M5','RealAcumulado']=>['M6'];
+['M6','RealAcumulado']=>['M7'];
+['M7','RealAcumulado']=>['M8'];
+['M8','RealAcumulado']=>['M9'];
+['M9','RealAcumulado']=>['M10'];
+['M10','RealAcumulado']=>['M11'];
+['M11','RealAcumulado']=>['M12'];
+
+
+
+['VarRealOrc']=>['PctVarRealOrc'];
+['Orcamento']=>['PctVarRealOrc'];
+
+

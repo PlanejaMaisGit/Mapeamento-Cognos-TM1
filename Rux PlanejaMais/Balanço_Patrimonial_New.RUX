@@ -1,0 +1,59 @@
+﻿FORMAT==100
+#####################################################################################
+##~~Copyright AMM Tech 2018                                                                                                                                              ##
+#####################################################################################
+
+#Regra paras o cubo: Balanço_Patrimonial_New
+#Criado em: 2018-10-23
+#Criado por: João Melo (jpmm78@gmail.com)
+#{Change log
+# 2018-10-23: jpmm78@gmail: Criação: v1.00
+#}
+#Versão atual: v1.00
+#
+#Notas:
+# To Do
+#{
+#}
+#
+#
+SKIPCHECK;
+FEEDSTRINGS;
+
+['Saldo', 'Meses':'M1'] = N:
+    IF(
+        AttrS('Ano', !Ano, 'Inativo') @= '1',
+        0,
+        ['Movimento'] + DB('Balanço_Patrimonial_New', !Versões, AttrS('Ano', !Ano, 'Ano Anterior'), 'M12', !Contas Balanço, 'Saldo')
+    );
+
+
+['Saldo', 'Meses':{'M2','M3','M4','M5','M6','M7','M8','M9','M10','M11','M12'}] = N:
+    ['Movimento'] +
+    DB('Balanço_Patrimonial_New', !Versões, !Ano, AttrS('Meses', !Meses, 'Mês Anterior'), !Contas Balanço, 'Saldo');
+
+
+FEEDERS;
+
+['Movimento'] => ['Saldo'];
+
+['Meses':{'M1', 'M2','M3','M4','M5','M6','M7','M8','M9','M10','M11'}] =>
+    DB(
+        IF(AttrS('Ano', !Ano, 'Inativo') @<> '1', 'Balanço_Patrimonial_New', ''),
+        !Versões,
+        !Ano,
+        AttrS('Meses', !Meses, 'Mês Seguinte'),
+        !Contas Balanço,
+        'Saldo'
+    );
+
+['Meses':'M12'] =>
+    DB(
+        'Balanço_Patrimonial_New',
+        !Versões,
+        AttrS('Ano', !Ano, 'Ano Seguinte'),
+        'M1',
+        !Contas Balanço,
+        'Saldo'
+    );
+

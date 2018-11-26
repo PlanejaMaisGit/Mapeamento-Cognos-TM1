@@ -1,0 +1,47 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+['Forecast']=['Orçamento'];
+
+[]=DB('Resultado_Final',!Area de Negócio,!Ano,!Meses,!Moedas,!Versões,!Contas Resultado);
+
+
+
+
+
+
+
+feeders;
+
+['R$']=>DB('Resultado Geral',!Area de Negócio,!Ano,!Versões,!Meses,!Contas Resultado);
+
+['Orçamento']=>['Forecast'];
+
+['R$','Impostos']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Tríbuto sobre Vendas');
+
+['R$','Resultado Líquido']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Lucro Líquido');
+
+['R$','Faturamento']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Receita Bruta');
+
+['R$','Faturamento']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Faturamento');
+
+['R$','Faturamento']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Vendas no Período');
+
+['R$','C.M.V.']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Custos da Mercadorias');
+
+['R$','Receita Líquida']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Receita Líquida');
+
+['R$','Resultado Bruto']=>DB('Indicadores',!Area de Negócio,!Ano,!Meses,!Versões,'Lucro Bruto');
+
+['Orçamento']=>DB('Resultado Relatório BSC',!Area de Negócio,!Meses,!Ano,!Contas Resultado,'Target');
+
+['Realizado']=>DB('Resultado Relatório BSC',!Area de Negócio,!Meses,!Ano,!Contas Resultado,'Actual');
+
+['R$','Orçamento','Faturamento']=>DB('Vendas',!Area de Negócio,!Ano,!Meses,'Total Itens','Faturamento Planejado');
+
+
+
+#BSC
+['R$','Realizado','C.M.V.']=>DB('Objetivos',!Meses,!Area de Negócio,!Ano,'Reduzir Custos','Actual');
+['R$','Orcamento','C.M.V.']=>DB('Objetivos',!Meses,!Area de Negócio,!Ano,'Reduzir Custos','Target');

@@ -1,0 +1,9 @@
+﻿FORMAT==100
+#skipcheck;
+#feedstrings;
+
+[]= DB('Resultado_Relatorio',attrs('Area Negocio',!Area Negocio,'Descrição'),!Ano,!Meses,'R$',!Orcado x Realizado,!Contas Resultado);
+
+#feeders;
+
+

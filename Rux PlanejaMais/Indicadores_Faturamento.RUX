@@ -1,0 +1,9 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+
+[]=DB('Faturamento',!Area de Negócio,'Realizado',!Ano,!Meses,!Dia,'R$',!Produtos,!Contas Faturamento);
+
+feeders;
+

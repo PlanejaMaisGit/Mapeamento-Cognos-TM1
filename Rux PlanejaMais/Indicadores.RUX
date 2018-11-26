@@ -1,0 +1,53 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+['Lucro Líquido']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Resultado Líquido');
+
+['Receita Bruta']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Faturamento');
+
+['Receita Líquida']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receita Líquida');
+
+['Faturamento']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Faturamento');
+
+['Faturamento do Período Anterior','M1']=N: DB('Resultado_Relatorio',!Area de Negócio,Attrs('Ano',!Ano,'Ano Anterior'),'M12','R$',!Versões,'Faturamento');
+
+['Faturamento do Período Anterior']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,attrs('Meses',!Meses,'Mês Anterior'),'R$',!Versões,'Faturamento');
+
+['Lucro Bruto']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Resultado Bruto');
+
+['Indicadores Financeiros']=C:0;
+
+['Saldo Médio de Caixa']= DB('Fluxo_Caixa',!Ano,!Versões,!Meses,'Saldo Final',!Area de Negócio);
+
+['Número de Colaboradores']=N: DB('Quantidade_Funcionarios',!Ano,!Versões,'Total Centro Custo','Total Itens','Total de Funcionarios');
+
+['Número de Colaboradores','Total do Ano']=['M12'];
+
+['Vendas no Período']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Faturamento');
+
+['Custos da Mercadorias']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'C.M.V.');
+
+['Tríbuto sobre Vendas']=N: DB('Resultado_Relatorio',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Impostos');
+
+['Geração de Caixa']=['Saldo Médio de Caixa']\['Faturamento'];
+
+['Lucratividade']=C:['Lucro Líquido']\['Receita Bruta'];
+
+['Margem Operacional']=C:['Receita Líquida']\['Receita Bruta'];
+
+['Crescimento de Receita']=1-['Faturamento do Período Anterior']\['Faturamento'];
+
+['Margem Bruta']=C: ['Lucro Bruto']\['Faturamento'];
+
+['Produtividade por Colaborador']=C: ['Número de Colaboradores']\['Faturamento'];
+
+['Margem de Contribuição']=C:['Vendas no Período']-['Custos da Mercadorias']-['Tríbuto sobre Vendas'];
+
+
+
+
+feeders;
+
+['Faturamento']=>['Número de Colaboradores'];
+['Faturamento']=>['Faturamento do Período Anterior'];

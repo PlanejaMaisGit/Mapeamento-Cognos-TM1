@@ -1,0 +1,56 @@
+﻿FORMAT==100
+
+FEEDSTRINGS;
+SKIPCHECK;
+
+[{'Orçamento','Cenário 1', 'RevisaoOrcamento','Forecast','Cenário 2'}]= N:  if(ATTRS('Ano',!Ano,'Inativo')@='1', stet, continue);
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'}]=N:
+if(ATTRS('Area de Negócio',!Area de Negócio,'Vendedor')@='Sim',
+DB('Despesas_Custos',ATTRS('Area de Negócio',!Area de Negócio,'Filial'), !Ano,!Meses,!Versões,!Plano de Contas),
+DB('Despesas_Custos',!Area de Negócio,!Ano,!Meses,!Versões,!Plano de Contas));
+
+
+
+['Total das Áreas de Negócios',{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'}]= ConsolidateChildren('Area de Negócio');
+
+
+
+
+feeders;
+
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'510']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'514']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'515']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Operacionais');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'501']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Pró-labore');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'502']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Pessoal');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'505']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Tributárias');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'509']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Vendas');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'504']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Vendas');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'902']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Financeiras');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'903']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'901']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'910']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'909']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Receitas Operacionais');
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'508']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Financeiras');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'507']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Despesas Financeiras');
+
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503007']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'503008']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'603007']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'603008']=>DB('Resultado',!Area de Negócio,!Ano,!Meses,!Versões,'R$','EBTIDA R$');
+
+
+[{'Orçamento','Cenário 1','Sugerido','Cenário 2','Realizado','RevisaoOrcamento','Forecast'},'901055']=> DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'Resultado Líquido'),
+ DB('Resultado',!Area de Negócio,!Ano,!Meses,'R$',!Versões,'EBTIDA R$');
+
+

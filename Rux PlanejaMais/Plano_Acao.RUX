@@ -1,0 +1,16 @@
+﻿FORMAT==100
+skipcheck;
+feedstrings;
+
+
+
+feeders;
+
+[]=>DB('Acao_Concluida',!Itens Headcount,!Progresso.);
+
+[]=>DB('Acao_em_Andamento',!Itens Headcount,!Progresso.);
+
+[]=>DB('Acao_em_Aberto',!Itens Headcount,!Progresso.);
+
+
+

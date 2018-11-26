@@ -1,0 +1,5 @@
+﻿FORMAT==100
+#Region tp_planning_rule
+[]=S:IF(DB('}tp_intermediate_RDCLS}Premissas_Direcionadores',!Centro de Custo,!}Groups,'all_applications','StaticRights')@<>'',DB('}tp_intermediate_RDCLS}Premissas_Direcionadores',!Centro de Custo,!}Groups,'all_applications','StaticRights'),CONTINUE);
+
+#EndRegion
